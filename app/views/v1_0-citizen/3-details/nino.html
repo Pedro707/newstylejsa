@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="about-you" method="post">
+        
+        {% call govukFieldset({
+            legend: {
+                text: "What is your National Insurance number?",
+                classes: "govuk-fieldset__legend--l",
+                isPageHeading: true
+            }
+        }) %}
+
+            {{ govukInput({
+                label: {
+                    text: "National Insurance number",
+                    classes: "govuk-visually-hidden"
+                },
+                hint: {
+                    text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+                },
+                classes: "govuk-input--width-20",
+                id: "national-insurance-number",
+                name: "national-insurance-number",
+                value: data['national-insurance-number']
+            }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

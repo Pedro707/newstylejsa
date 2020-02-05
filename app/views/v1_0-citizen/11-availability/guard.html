@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="guard" method="post">
+        {{ govukRadios({
+          idPrefix: "availability",
+          name: "availability",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Are there any days and times that you won’t be able to attend a job centre interview in the next 5 days?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "You have to attend an interview at the job centre to complete your application for Jobseeker’s Allowance."
+          },
+          items: [{
+            value: "availability-yes",
+            text: "Yes"
+          }, {
+            value: "availability-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

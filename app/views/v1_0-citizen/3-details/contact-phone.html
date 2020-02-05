@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contact-phone" method="post">
+      
+        {% call govukFieldset({
+          legend: {
+            text: "What is your phone number?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Please give us a mobile number so that we can send you the details of your interview at the job centre."
+          },
+          hint: {
+            text: "If you don’t have a mobile, we can contact you on a landline."
+          },
+          classes: "govuk-input--width-20",
+          id: "contact-telephone-number",
+          name: "contact-telephone-number",
+          value: data["contact-telephone-number"]
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

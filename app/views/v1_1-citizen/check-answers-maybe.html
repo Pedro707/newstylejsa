@@ -1,0 +1,101 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+<p><strong>
+WIP
+</strong></p>
+
+{% set currentlyworking = false %}
+{% set jservice = false %}
+{% set resultjservice = "no" %}
+{% set startDateItems = todaysDate.original | moment %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Check your answers
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
+            Claim start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['claimstart'] != null %}
+              {% set startDateItems = data['claimStartDay'] + "/" + data['claimStartMonth'] + "/" + data['claimStartYear'] %}
+              {{ data['claimstart'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-registration">
+              Change <span class="govuk-visually-hidden">registration number</span>
+            </a>
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['vehicle-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-type">
+              Change <span class="govuk-visually-hidden">vehicle type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Vehicle features
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list govuk-list--bullet">
+              {% for feature in data['vehicle-features'] %}
+                <li>{{ feature }}</li>
+              {% else %}
+                <li>No features selected</li>
+              {% endfor %}
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+              Change <span class="govuk-visually-hidden">vehicle features</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+    </div>
+  </div>
+
+<section>
+  <h2 class="govuk-heading-l">Claim Start Date</h2>
+  <dl role="list" class="app-check-your-answers">
+
+    {% if data['claimstart'] != null %}
+      {% set startDateItems = data['claimStartDay'] + "/" + data['claimStartMonth'] + "/" + data['claimStartYear'] %}
+    {% endif %}
+
+    {% if data['mode'] === "agent"  %}
+      {{ checkAnswersItem("When do you want your claim to start?", startDateItems) }}
+    {% else %}
+      {{ checkAnswersItem("When do you want your claim to start?", startDateItems, true, "warning/claim-start-date") }}
+    {% endif %}
+
+  </dl>
+</section>
+
+{{ govukButton({
+  text: "Continue",
+  href: "declaration"
+}) }}
+
+{% endblock %}

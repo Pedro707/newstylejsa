@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-different-postal-address" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'details-add-different-postal-address',
+            name: 'detailsAddDifferentPostalAddress',
+            classes: "govuk-radios--inline",
+            fieldset: {
+                legend: {
+                    text: 'Do you want to add a different address for your post?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "add-different-postal-address-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "add-different-postal-address-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

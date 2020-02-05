@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="details-note" method="post">
+        
+        <h1 class="govuk-heading-l">Pension details</h1>
+        <p>Please be aware that when you have the information regarding this future pension you will need to visit your local jobcentre plus and provide these details.</p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

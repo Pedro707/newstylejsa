@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  There is a problem with the service – {{ serviceName }} – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Sorry, there is a problem with the service</h1>
+        <p><a href="/citizen/start">Try again</a> later.</p>
+        <p>
+          <a href="https://www.gov.uk/contact-jobcentre-plus">Contact Jobcentre Plus</a> if you need to make changes to your claim or speak to someone.
+        </p>
+  </div>
+
+{% endblock %}

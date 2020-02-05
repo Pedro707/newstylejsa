@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="eligible" method="get">
+        
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset" aria-describedby="eligibility-contributions-hint">
+            
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                      Have you paid or been credited with National Insurance in the last 2 or 3 years?
+                    </h1>
+                </legend>
+
+                <span id="eligibility-contributions-hint" class="govuk-hint">
+                    You can get {{ serviceName }} if you&rsquo;ve paid contributions over the last 2 or 3 years before this January.
+                </span>
+
+                {{ govukRadios({
+                    idPrefix: 'contributions',
+                    name: 'eligibilityContributions',
+                    items: [
+                        {
+                            value: "eligibility-contributions-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-contributions-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-contributions-not-sure",
+                            text: "I'm not sure"
+                        }
+                    ]
+                })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

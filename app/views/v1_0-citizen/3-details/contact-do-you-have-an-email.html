@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contact-do-you-have-an-email" method="post">
+      
+        {{ govukRadios({
+          idPrefix: "contact-do-you-have-an-email",
+          name: "contactDoYouHaveAnEmail",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Do you have an email we can contact you on?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            value: "Yes",
+            text: "Yes",
+            checked: checked("contactDoYouHaveAnEmail", "Yes")
+          }, {
+            value: "No",
+            text: "No",
+            checked: checked("contactDoYouHaveAnEmail", "No")
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

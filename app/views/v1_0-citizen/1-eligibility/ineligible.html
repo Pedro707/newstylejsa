@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">You cannot get Jobseeker&rsquo;s Allowance</h1>
+
+            <section>
+                <h2 class="govuk-heading-m" id="heading2">Based on your answers, you aren’t able to apply.</h2>
+
+                <p class="govuk-body">To get it, you must:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>live in England, Scotland or Wales</li>
+                    <li>be looking for work</li>
+                    <li>have paid enough National Insurance contributions over the last 2 years</li>
+                    <li>be over 18 and under State Pension age</li>
+                    <li>have been working under 16 hours a week for the last 3 months</li>
+                </ul>
+            </section>
+
+            {{ govukInsetText({
+                html: 'Check your national insurance record<p><a href="#">National insurance</a></p>'
+            }) }}
+
+            <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
+            {{ govukButton({
+                text: "Find other benefits",
+                href: "https://www.gov.uk/benefits-calculators"
+            }) }}
+
+            <h2 class="govuk-heading-m">Do you still want to apply?</h2>
+            <p>You can continue to apply for Jobseeker&rsquo;s Allowance if you still think you’re eligible for it.</p>
+            <p><a href="eligible" class="js-still-apply">Continue to apply</a>
+
+        </div>
+    </div>
+
+{% endblock %}

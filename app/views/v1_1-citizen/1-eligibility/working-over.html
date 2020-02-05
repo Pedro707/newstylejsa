@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contributions" method="get">
+
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: 'working-over-form',
+            name: 'eligibilityWorkingOver',
+            fieldset: {
+                legend: {
+                    text: 'How many hours a week do you normally work?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "eligibility-working-over-yes",
+                    text: "16 hours or more"
+                },
+                {
+                    value: "eligibility-working-over-no",
+                    text: "Less than 16 hours"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

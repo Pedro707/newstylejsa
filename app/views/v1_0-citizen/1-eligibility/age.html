@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="working" method="get">
+        
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: 'age',
+            name: 'eligibilityAge',
+            fieldset: {
+                legend: {
+                    text: 'Are you aged 18 or over?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "eligibility-age-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "eligibility-age-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

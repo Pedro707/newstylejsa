@@ -1,0 +1,77 @@
+
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Apply for new style Jobseeker&rsquo;s Allowance</h1>
+      <p>Jobseeker&rsquo;s Allowance is a benefit for people of working age who are out of work or work less than 16 hours a week on average. 
+      It&rsquo;s paid while you&rsquo;re <a href="https://www.gov.uk/jobsearch">looking for work</a>.</p>
+
+      <p>You cannot get new style Jobseeker&rsquo;s Allowance if you&rsquo;ve never worked.</p>
+
+      <h2 class="govuk-heading-m">Check if you are eligible</h2>
+      <p>You must:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>live in England, Scotland or Wales</li>
+        <li>be looking for work</li>
+        <li>have paid enough National Insurance contributions over the last 2 to 3 years</li>
+        <li>be over 18 and under State Pension age</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Before you apply</h2>
+      <p>You will need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your National Insurance number</li>
+        <li>your bank or building society details</li>
+        <li>details of your recent employment </li>
+        <li>details of pensions you receive</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">After you apply</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>we&rsquo;ll text or call you within 48 hours, with your Jobcentre Plus interview details</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Apply now",
+        href: "1-eligibility/introduction",
+        isStartButton: true
+      }) }}
+      
+      <p>If you cannot apply online <a href="https://www.gov.uk/contact-jobcentre-plus/new-benefit-claims">contact Jobcentre Plus</a>.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related information
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/universal-credit/how-to-claim">Universal Credit</a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/jobsearch">Find a job</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      </div>
+  </div>
+
+{% endblock %}

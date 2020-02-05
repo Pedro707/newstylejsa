@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="have-been" method="post">
+        
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: 'jury-service',
+            name: 'juryService',
+            fieldset: {
+                legend: {
+                    text: 'Have you been on jury service in the last 12 weeks?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes"
+                },
+                {
+                    value: "no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

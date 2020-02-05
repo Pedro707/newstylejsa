@@ -1,0 +1,48 @@
+
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-panel__title--centred">Application complete</h1>
+      </div>
+
+      <p>If you have provided a mobile and/or email, we will send you a confirmation</p>
+
+      <h3 class="govuk-heading-m">What happens next</h3>
+      
+      <p>You’ll need to bring all of the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>one ‘primary’ identity document</li>
+        <li>2 ‘secondary’ identity documents (one to prove your address and the other to prove your date of birth)</li>
+        {% if data['juryService'] === 'yes' %}
+          <li>the letter you were given by the court when your jury service (this will tell us how long you were on jury service)</li>
+        {% endif %}
+        <li>Your P45 from your previous employer</li>
+        <li>Wage slips and/or supporting letter to confirm your payments from your previous employer</li>
+        <li>Your last 3 payslips relating to your monthly or 4-weekly work</li>
+        <li>bring along any emails, letters and other documents that prove you’ve been looking for a job since 05/12/2018</li>
+        <li>details of your bank account so you can be paid</li>
+        {% if showPensionLimitWarning %}
+          <li>proof of all the pensions to your interview. For example, a pay statement showing details of the pension.</li>
+        {% endif %}
+      </ul>
+
+      {% include "includes/help-with-id.html" %}
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      
+      <p><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
+
+      <p>It&rsquo;s now safe to close this window.</p>
+      
+    </div>
+  </div>
+
+{% endblock %}

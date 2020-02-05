@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="when-employer" method="get">
+        
+        {{ govukRadios({
+            idPrefix: 'pe-last-six-months',
+            name: 'peLastSixMonths',
+            classes: "govuk-radios--inline",
+            fieldset: {
+                legend: {
+                    text: 'Have you had a job that ended in the last 6 months?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "pe-last-six-months-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "pe-last-six-months-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

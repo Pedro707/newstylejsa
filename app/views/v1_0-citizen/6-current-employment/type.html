@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="type" method="post">
+      
+        {% set jobref = "job" + data["jobnum"] + "-" %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ce-current-work-type",
+          name: "ceCurrentWorkType",
+          fieldset: {
+            legend: {
+              text: "Is this paid work or voluntary work?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            value: "Paid",
+            text: "Paid work",
+            checked: checked("ceCurrentWorkType", "Paid")
+          }, {
+            value: "Voluntary",
+            text: "Voluntary work",
+            checked: checked("ceCurrentWorkType", "Voluntary")
+          }]
+          })
+        }}
+
+        {{ govukInput({
+          type: "hidden",
+          id: "jobnum",
+          name: "jobnum"
+        })  }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+<!-- save current job number -->
+<script language="javascript">
+  window.onload = function() {
+    document.getElementById('jobnum').value = getParameterByName("job");
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+</script>
+
+{% endblock %}

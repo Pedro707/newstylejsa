@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="contributions" method="get">
+        
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: 'seeking',
+            name: 'eligibilitySeeking',
+            fieldset: {
+                legend: {
+                    text: 'Are you actively looking for work?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "eligibility-seeking-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "eligibility-seeking-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

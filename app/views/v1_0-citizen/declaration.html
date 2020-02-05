@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Declaration</h1>
+
+        <p class="govuk-body">By submitting this claim you agree that the information you’ve given is complete and correct. While you’re receiving Jobseeker’s Allowance, you’ll report changes to your circumstances straight away. If you give wrong or incomplete information, or you don’t report changes, you may:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>be prosecuted</li>
+            <li>need to pay a financial penalty </li>
+            <li>have your Jobseeker’s Allowance reduced or stopped </li>
+            <li>be paid too much Jobseeker’s Allowance and have to pay the money back.</li>
+        </ul>
+        
+        <form action="confirmation" method="POST">
+
+          <h2 class="govuk-heading-m">I have read and understood this declaration</h2>
+          {{ govukCheckboxes({
+              idPrefix: "confirm",
+              name: "confirm",
+              items: [
+                  {
+                      value: "confirm",
+                      text: "I agree to this declaration"
+                  }
+              ]
+          }) }}
+
+          {{ govukButton({
+              text: "Submit application"
+          }) }}
+            
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

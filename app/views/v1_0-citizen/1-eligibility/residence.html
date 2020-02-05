@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="age" method="get">
+        
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: 'residence',
+            name: 'eligibilityResidence',
+            fieldset: {
+                legend: {
+                    text: 'Do you live in England, Wales or Scotland?',
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            items: [
+                {
+                    value: "eligibility-residence-yes",
+                    text: "Yes"
+                },
+                {
+                    value: "eligibility-residence-no",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

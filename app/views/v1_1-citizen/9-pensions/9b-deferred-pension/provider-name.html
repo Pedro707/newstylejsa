@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="provider-name" method="post">
+        
+        {% call govukFieldset({
+          legend: {
+            text: "What is the name of your pension or annuity provider?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Name of your current pension provider",
+            classes: "govuk-visually-hidden"
+          },
+          hint: {
+            text: ""
+          },
+          classes: "govuk-input--width-20",
+          id: "deferred-pension-provider-name",
+          name: "deferred-pension-provider-name",
+          value: data["deferred-pension-provider-name"]
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- the following form action was previously 'option-2' -->
+      <form action="start-date" method="post">
+
+        {% call govukFieldset({
+          legend: {
+            text: 'Confirm the claim start date',
+            isPageHeading: true,
+            classes: 'govuk-fieldset__legend--l'
+          }
+        }) %}
+        
+          <p>Your claim will start from today <strong>{{ todaysDate.original | moment }}</strong>.</p>
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "change-claim-start",
+            name: "claimstart",
+            fieldset: {
+              legend: {
+                text: "Do you want to change the claim start date?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
+          }) }}
+ 
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

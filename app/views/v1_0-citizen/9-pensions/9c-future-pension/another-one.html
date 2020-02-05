@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="another-one" method="post">
+      
+        {{ govukRadios({
+          idPrefix: "future-pension-another-one",
+          name: "futurePensionAnotherOne",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Do you have another pension or annuity that you expect receive in the next 6 months?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            value: "future-pension-another-one-yes",
+            text: "Yes"
+          }, {
+            value: "future-pension-another-one-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

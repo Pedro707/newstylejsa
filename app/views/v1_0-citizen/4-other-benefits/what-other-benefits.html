@@ -1,0 +1,40 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="what-other-benefits" method="post">
+        {% call govukFieldset({
+          legend: {
+            text: "What other benefits are you waiting to hear about?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukCharacterCount({
+          name: "more-detail",
+          id: "more-detail",
+          maxlength: 100,
+          hint: {
+            html: "For example, Carers allowance"
+          }
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="course-name" method="post">
+
+        {% call govukFieldset({
+          legend: {
+            text: "What was the name of the course?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "",
+            classes: "govuk-visually-hidden" // govuk-visually-hidden
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "edu-course-name",
+          name: "eduCourseName",
+          value: data["edu-course-name"]
+        }) }}
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

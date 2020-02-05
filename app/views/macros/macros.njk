@@ -1,0 +1,114 @@
+{% from "govuk/components/input/macro.njk"         import govukInput %}
+
+{% macro infoBoxWithText(title, text, exampleText) %}
+  <div class="info-box govuk-!-width-two-thirds">
+  <p>
+    <span class="info-box__title"><strong>{{ title | safe }}</strong></span></br>
+    <span class="info-box__body">{{ text | safe }}</span></br>
+    <span class="info-box__hint" style="color:#889093">{{ exampleText | safe }}<br></span>
+  </p>
+  </div>
+{% endmacro %}
+
+{% macro grossPensionAmountInput(prefix, id) %}
+  {% set fieldID = prefix + "-" + id + "-net" %}
+
+  {{ infoBoxWithText("What’s your gross pension?", "This is the total amount before tax is taken off. You can find this on your pension statement.", "For example, £80.00") }}
+  {{ govukCurrencyInput({
+    id: fieldID,
+    name: fieldID,
+    classes: "govuk-!-width-two-thirds",
+    value: data[fieldID]
+  }) }}
+{% endmacro %}
+
+{% macro grossPaymentAmountInput(prefix, id) %}
+  {% set fieldID = prefix + "-" + id + "-net" %}
+
+  {{ infoBoxWithText("What is the amount before deductions?", "For example, £80.00") }}
+  {{ govukCurrencyInput({
+    id: fieldID,
+    name: fieldID,
+    classes: "govuk-!-width-two-thirds",
+    value: data[fieldID]
+  }) }}
+{% endmacro %}
+
+{% macro netPaymentAmountInput(prefix, id) %}
+  {% set fieldID = prefix + "-" + id + "-net" %}
+
+  {{ infoBoxWithText("What is your net pay?", "This is the exact amount that is paid into your bank account", "For example, £80.00") }}
+  {{ govukCurrencyInput({
+    id: fieldID,
+    name: fieldID,
+    classes: "govuk-!-width-two-thirds",
+    value: data[fieldID]
+  }) }}
+{% endmacro %}
+
+{% macro netAndGrossPaymentAmountInputs(prefix, id) %}
+  {% set fieldOneID = prefix + "-" + id + "-net" %}
+  {% set fieldTwoID = prefix + "-" + id + "-gross" %}
+
+  <div class="info-boxes">
+    {{ infoBoxWithText("What is your gross pay?", "This is the amount you are paid before any tax or national insurance deductions", "For example, £100.00") }}
+    
+    {{ govukCurrencyInput({
+      id: fieldOneID,
+      classes: "govuk-!-width-two-thirds",
+      value: data[fieldOneID]
+    }) }}
+
+    {{ infoBoxWithText("What is your net pay?", "This is the exact amount that is paid into your bank account", "For example, £80.00") }}
+    
+    {{ govukCurrencyInput({
+      id: fieldTwoID,
+      classes: "govuk-!-width-two-thirds",
+      value: data[fieldTwoID]
+    }) }}
+  </div>
+{% endmacro %}
+
+{% macro govukCurrencyInput(options) %}
+  {% set classes = options.classes or "" %}
+  {% set id = options.id or "" %}
+  {% set value = options.value or "" %}
+
+  <div class="govuk-currency-input">
+    <div class="govuk-currency-input__inner">
+      <span class="govuk-currency-input__inner__unit govuk-body">£</span>
+      <input class="{{ classes }} govuk-currency-input__inner__input govuk-input" aria-label="Enter amount in pounds" name="{{ id }}" data-non-numeric="" type="number" id="{{ id }}" pattern="[0-9]\d*(\.\d+)?" value="{{ options.value }}">
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro checkAnswersItem(question, answer, link, href) %}
+  <div class="app-check-your-answers__contents-wrapper">
+  <span class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div role="presentation" class="app-check-your-answers__contents">
+    <!--<span class="govuk-summary-list__row  govuk-grid-column-full">-->
+    <span class="govuk-summary-list__row">
+      <span class="govuk-summary-list__key">
+      <dt role="term" class="app-check-your-answers__question">
+        {{ question | safe }}
+      </dt>
+      </span>
+      <span class="govuk-summary-list__value">
+      <dd role="definition" class="app-check-your-answers__answer">
+        {{ answer | safe }}
+      </dd>
+      </span>
+      <span class="govuk-summary-list__actions">
+      <dd role="presentation" class="app-check-your-answers__change">
+        {% if link %}
+        <a href="{{ href }}">
+          Change<span class="govuk-visually-hidden"> {{ question | safe }}</span>
+        </a>
+        {% endif %}
+      </dd>
+      </span>
+    </span>
+    </div>
+  </span>
+  </div>
+{% endmacro %}

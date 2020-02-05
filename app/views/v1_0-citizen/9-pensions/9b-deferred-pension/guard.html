@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "deferred-pension-guard",
+          name: "deferredPensionGuard",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              text: "Do you have a pension or annuity that you could be paid now, but have decided not to take?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            value: "deferred-pension-guard-yes",
+            text: "Yes"
+          }, {
+            value: "deferred-pension-guard-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

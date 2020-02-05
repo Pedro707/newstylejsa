@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- the following form action was previously 'option-1' -->
+      <form action="change-date" method="post">
+
+        {% call govukFieldset({
+          legend: {
+            text: 'When do you want your claim to start?',
+            isPageHeading: true,
+            classes: 'govuk-fieldset__legend--l'
+          }
+        }) %}
+        <p>Only give an earlier date for a very good reason - for example a close relative died or you were given wrong advice. </p>
+        <p>Give the date you'd have applied if you could. Be prepared to discuss this and show evidence at your jobseeker interview. You’ll need to prove you've been job hunting and available for work during this period.</p>
+        <p class="govuk-hint">For example, {{ todaysDate.original | moment }}.</p>
+
+        {{ govukDateInput({
+          id: 'claim-start',
+          name: 'claim-start',
+          items: [
+            {
+              name: 'claimStartDay',
+              value: '',
+              classes: 'govuk-input--width-2',
+              label: 'Day'
+            },
+            {
+              name: 'claimStartMonth',
+              value: '',
+              classes: 'govuk-input--width-2',
+              label: 'Month'
+            },
+            {
+              name: 'claimStartYear',
+              value: '',
+              classes: 'govuk-input--width-4',
+              label: 'Year'
+            }
+          ]
+          })
+        }}
+ 
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
