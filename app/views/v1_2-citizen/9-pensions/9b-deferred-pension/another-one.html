@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Deferred pension</span>
+        Do you have another pension or annuity that you could be paid now but have decided not to take?
+      </h1>
+
+      <form action="another-one" method="post">
+
+        {{ govukRadios({
+          idPrefix: "deferred-pension-another-one",
+          name: "deferredPensionAnotherOne",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "deferred-pension-another-one-yes",
+            text: "Yes"
+          }, {
+            value: "deferred-pension-another-one-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
