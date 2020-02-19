@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
 {% block content %}
@@ -11,10 +11,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Other benefits and jury service</span>
+        <span class="govuk-caption-xl">Other benefits</span>
         Are you waiting to hear about any other benefits?
       </h1>
-    
+
       <form action="guard" method="post">
 
         {{ govukRadios({
@@ -29,11 +29,11 @@
             text: "No"
           }]
         }) }}
-        
+
         {{ govukButton({
           text: "Continue"
         }) }}
-        
+
       </form>
     </div>
   </div>

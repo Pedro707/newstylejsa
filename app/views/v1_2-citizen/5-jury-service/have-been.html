@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
 {% block content %}
@@ -11,12 +11,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Other benefits and jury service</span>
+        <span class="govuk-caption-xl">Jury service</span>
         Have you been on jury service in the last 12 weeks?
       </h1>
 
       <form action="have-been" method="post">
-        
+
         {{ govukRadios({
             classes: "govuk-radios--inline",
             idPrefix: 'jury-service',
