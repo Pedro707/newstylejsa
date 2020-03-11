@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
 {% block content %}
@@ -11,12 +11,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Current employment</span>
+        <span class="govuk-caption-xl">Current work</span>
         Can you choose if you’re paid for this voluntary work?
       </h1>
 
       <form action="choose-to-be-paid" method="post">
-      
+
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "ce-voluntary-work-can-you-choose",
@@ -36,7 +36,7 @@
         {{ govukButton({
           text: "Continue"
         }) }}
-        
+
       </form>
     </div>
   </div>

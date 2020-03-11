@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
 {% block content %}
@@ -11,12 +11,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Current employment</span>
+        <span class="govuk-caption-xl">Current work</span>
         What is the name of your current employer?
       </h1>
 
       <form action="employer-name" method="post">
-      
+
         {% set jobref = "job" + data["jobnum"] + "-" %}
         {% set fieldref = jobref + "ceEmployerName" %}
         {% call govukFieldset({
@@ -36,7 +36,7 @@
           classes: "govuk-!-width-one-half"
         }) }}
         {% endcall %}
-        
+
         {{ govukButton({
           text: "Continue"
         }) }}

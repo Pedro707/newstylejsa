@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  DWP - Jobseeker&rsquo;s Allowance  
+  DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
 {% block content %}
@@ -11,12 +11,12 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Current employment</span>
+        <span class="govuk-caption-xl">Current work</span>
         Are you in any form of work at the moment?
       </h1>
 
       <form action="guard" method="post">
-      
+
         {{ govukRadios({
           classes: "govuk-radios--inline",
           idPrefix: "ce-currently-working",
@@ -37,7 +37,7 @@
         {{ govukButton({
             text: "Continue"
         }) }}
-        
+
       </form>
     </div>
   </div>
