@@ -7,14 +7,22 @@
 
 {% block content %}
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">
-            Based on your answers, you may be eligible for New Style Jobseeker&rsquo;s Allowance</h1>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+
+                <h1 class="govuk-heading-l">
+                    Based on your answers, you may be eligible for New Style Jobseeker&rsquo;s Allowance</h1>
+                    
+
+
+        <div class="govuk-inset-text">It usually takes 20 minutes to complete the form. You will not be able to save your answers and come back to the form later. But you’ll get a chance to check and update your answers before you send it.</div>
+                <p>We will treat your personal information carefully. We may share your information with other government departments. To learn about your information rights and how we use information, see our personal information charter.</p>
+
 
         {{ govukButton({
-            text: "Continue",
+            text: "Start now",
             href: "../2-claim-start/start-date"
         }) }}
 
