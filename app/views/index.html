@@ -55,13 +55,18 @@
 
 <!-- DESIGN IDEAS -->
 
-  <h2 class="govuk-heading-l">Design ideas</h2>
+  <h2 class="govuk-heading-l">Specific features</h2>
 
-  <h3 class="govuk-heading-m">Session timeout</h3>
-    <ul class="govuk-list govuk-list--bullet">
-      <li><a href="design-ideas/session-timeout/session-warning">Session timeout warning (wait 5 seconds after page load for warning to appear)</a></li>
-      <li><a href="design-ideas/session-timeout/session-timeout">Session has timed out</a></li>
-    </ul>
+  {{ govukDetails({
+    summaryText: "Session timeout [1st May 2020]",
+    html: '
+      <div class="govuk-clearfix"><div class="govuk-grid-column-one-half">
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="design-ideas/session-timeout/session-warning">Timeout warning (wait 5 seconds after page load for warning to appear)</a></li>
+          <li><a href="design-ideas/session-timeout/session-timeout">Session has timed out</a></li>
+        </ul>
+      </div>'
+  }) }}
 
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
