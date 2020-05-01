@@ -1,0 +1,26 @@
+
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your application has timed out – Apply for New Style Jobseeker&rsquo;s Allowance – GOV.UK
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <h1 class="govuk-fieldset__legend--l">Your application has timed out</h1>
+        
+        <p>We have reset your application due to inactivity for 20 minutes, this is to keep your information secure.</p>
+        <p>You will need to start the application process again.</p>
+
+        {{ govukButton({
+            text: "Restart application",
+            href: "restart-application"
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
