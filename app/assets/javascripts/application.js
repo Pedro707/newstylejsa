@@ -18,6 +18,10 @@ $(document).ready(function() {
     var firstTabbable = tabbable.first();
     var lastTabbable = tabbable.last();
     // set focus on first tabbable element
+    // NOTE:  If this doesn't exist, then the user is able to tab through all of the page
+    //        page elements that sit behind the modal dialog...
+    //        Work around being that the 'Continue' button is on focus, with tabbing
+    //        through not being permissiable
     firstTabbable.focus();
 
     // send last tabbable back to first
