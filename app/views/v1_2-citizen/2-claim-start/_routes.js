@@ -10,9 +10,11 @@ router.post('/start-date', function (req, res) {
   const answer = req.body.claimstart;
 
   if (answer === 'yes') {
-    res.redirect(`${ABS_BASE_PATH}/change-date`);
-  } else {
+    // Yes, I want my claim to start from today {current-date}
     res.redirect(`${NEXT_PATH}`);
+  } else {
+    // No, I want my claim to start from an earlier date
+    res.redirect(`${ABS_BASE_PATH}/change-date`);
   };
 });
 

@@ -23,12 +23,12 @@
         <p>Your claim will start from today <strong>{{ todaysDate.original | moment }}</strong>.</p>
 
         {{ govukRadios({
-          classes: "govuk-radios--inline",
+          classes: "govuk-radios",
           idPrefix: "change-claim-start",
           name: "claimstart",
           fieldset: {
             legend: {
-              text: "Do you want to change your claim start date?",
+              text: "Do you want your claim to start from today?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -36,11 +36,11 @@
           items: [
             {
               value: "yes",
-              text: "Yes"
+              html: "Yes, I want my claim to start from today <strong>" + todaysDate.original | moment + "</strong>"
             },
             {
               value: "no",
-              text: "No"
+              html: "No, I want my claim to start from an earlier date"
             }
           ]
         }) }}
