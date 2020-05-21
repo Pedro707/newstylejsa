@@ -1,0 +1,57 @@
+
+{% extends "layout-service-banner-orange.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Claim start date</span>
+        Confirm your claim start date
+      </h1>
+
+      <form action="start-date" method="post">
+
+        {% call govukFieldset({
+        }) %}
+
+        <p>Your claim will start from today <strong>{{ todaysDate.original | moment }}</strong>.</p>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "change-claim-start",
+          name: "claimstart",
+          fieldset: {
+            legend: {
+              text: "Do you want your claim to start from today?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              html: "Yes, I want my claim to start from today <strong>" + todaysDate.original | moment + "</strong>"
+            },
+            {
+              value: "no",
+              html: "No, I want my claim to start from an earlier date"
+            }
+          ]
+        }) }}
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

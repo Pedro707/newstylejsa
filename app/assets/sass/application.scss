@@ -20,33 +20,34 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-//@import "custom.scss";
+// START: Service banner
 
-/*.app-c-tag {
-  background-color: #005ea5;
-  color: #fff;
-  display: inline-block;
-  font-family: 'nta', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  line-height: 1.25;
-  padding: 5px 8px 0;
-  text-decoration: none;
-  text-transform: uppercase;
+.notification-banner-padding {
+  border: 5px solid #1d70b8; /* default to blue */
+  padding: 20px;
+  padding-bottom: 10px;
+  margin-top: 30px !important;
+  margin-bottom: 20px;
+}
+.notification-banner-border-blue {
+  border: 5px solid #1d70b8;
 }
 
-.app-c-tag--success {
-  background-color: #85994b;
+.notification-banner-border-green {
+  border: 5px solid #00703c;
 }
 
-.app-c-tag--warning {
-  background-color: #b58840;
+.notification-banner-border-orange {
+  border: 5px solid #f47738;
 }
 
-.app-c-tag--danger {
-  background-color: #df3034;
-}*/
+.notification-banner-border-red {
+  border: 5px solid #d4351c;
+}
+
+// END: Service banner
+
+// START: Session timeout modal
 
 .govuk-modal-overlay {
   position: fixed;
@@ -85,3 +86,5 @@ $govuk-assets-path: '/govuk/assets/';
   box-sizing: border-box;
   overflow: scroll;
 }
+
+// END: Session timeout modal
