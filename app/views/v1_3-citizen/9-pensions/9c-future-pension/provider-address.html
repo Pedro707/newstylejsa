@@ -1,0 +1,71 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Future pension</span>
+        What is the address of your pension or annuity provider?
+      </h1>
+    
+      <form action="provider-address" method="post">
+
+        {% call govukFieldset({
+        }) %}
+
+        {{ govukInput({
+          label: {
+            html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
+          },
+          id: "future-pension-address-line-1",
+          name: "future-pension-address-line-1",
+          value: data["future-pension-address-line-1"]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: "<span class='govuk-visually-hidden'>Building and street line 2 of 2</span>"
+          },
+          id: "future-pension-address-line-2",
+          name: "future-pension-address-line-2",
+          value: data["future-pension-address-line-2"]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "future-pension-address-town",
+          name: "future-pension-address-town",
+          value: data["future-pension-address-town"]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode (optional)"
+          },
+          classes: "govuk-input--width-10",
+          id: "future-pension-address-postcode",
+          name: "future-pension-address-postcode",
+          value: data["future-pension-address-postcode"]
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

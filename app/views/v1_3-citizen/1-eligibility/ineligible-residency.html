@@ -1,0 +1,38 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">Based on your answers, you may not be eligible for New Style Jobseeker's Allowance</h1>
+
+            <section>
+                <p class="govuk-body">To get it you must:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>live in England, Scotland or Wales</li>
+                    <li>not be working at the moment, or be working less than 16 hours a week on average</li>
+                    <li>have been employed and paid enough National Insurance contributions (<a href="https://www.gov.uk/national-insurance-credits">National Insurance credits can also count</a>)</li>
+                    <li>be under <a href="https://www.gov.uk/state-pension-age">State Pension age</a></li>
+                </ul>
+            </section>
+
+            <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
+            {{ govukButton({
+                text: "Find other benefits",
+                href: "https://www.gov.uk/benefits-calculators"
+            }) }}
+
+            <h2 class="govuk-heading-m">Do you still want to apply?</h2>
+            <p>You can continue to apply for New Style Jobseeker&rsquo;s Allowance if you still think you’re eligible for it.</p>
+            <p><a href="working" class="js-still-apply">Continue to apply</a>
+
+        </div>
+    </div>
+
+{% endblock %}
