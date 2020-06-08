@@ -1,0 +1,98 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .flash-card {
+    margin-top: 1em;
+    margin-bottom: 3em;
+    padding: 30px;
+    background: #005EA5;
+    color: #FFF;
+
+    header {
+      background-color: inherit;
+    }
+
+    p {
+      margin-left: 32px;
+    }
+
+    h1 {
+      color: #FFF;
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+    }
+
+    a {
+      color: #FFF;
+      &:visited,
+      &:hover,
+      &:active {
+        color: #FFF;
+      }
+    }
+  }
+
+  .flash-card .govuk-button {
+    color: #005EA5;
+    background-color: #fff;
+  }
+
+  .flash-card .govuk-radios__label {
+    color: #fff;
+  }
+
+  @media (min-width: 769px) {
+    .flash-card {
+      padding: 50px 50px;
+    }
+  }
+</style>
+
+  <div class="govuk-grid-row flash-card" style="margin-right:0; margin-left:0">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <header>
+          <h1 class="govuk-heading-l" style="color:white">
+            <span class="govuk-caption-xl" style="color:white">Deferred pension</span>
+            You have added Freedom Pensions 
+          </h1>
+        </header>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6" style="color:white">
+          Do you have another pension or annuity that you could be paid now but have decided not to take?
+        </h2>
+
+        <form action="another-one" method="post">
+
+         {{ govukRadios({
+            idPrefix: "deferred-pension-another-one",
+            name: "deferredPensionAnotherOne",
+            classes: "govuk-radios--inline",
+            items: [{
+              value: "deferred-pension-another-one-yes",
+              text: "Yes"
+            }, {
+              value: "deferred-pension-another-one-no",
+              text: "No"
+            }]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .flash-card {
+    margin-top: 1em;
+    margin-bottom: 3em;
+    padding: 30px;
+    background: #005EA5;
+    color: #FFF;
+
+    header {
+      background-color: inherit;
+    }
+
+    p {
+      margin-left: 32px;
+    }
+
+    h1 {
+      color: #FFF;
+      &:first-of-type {
+        margin-top: 0 !important;
+      }
+    }
+
+    a {
+      color: #FFF;
+      &:visited,
+      &:hover,
+      &:active {
+        color: #FFF;
+      }
+    }
+  }
+
+  .flash-card .govuk-button {
+    color: #005EA5;
+    background-color: #fff;
+  }
+
+  .flash-card .govuk-radios__label {
+    color: #fff;
+  }
+
+  @media (min-width: 769px) {
+    .flash-card {
+      padding: 50px 50px;
+    }
+  }
+</style>
+
+  <div class="govuk-grid-row flash-card" style="margin-right:0; margin-left:0">
+    <div class="govuk-grid-column-two-thirds">
+
+      <header>
+        <h1 class="govuk-heading-l" style="color:white">
+          <span class="govuk-caption-xl" style="color:white">Previous work</span>
+          You have added Centaur Packaging
+        </h1>
+      </header>
+
+      <h2 class="govuk-heading-s" style="color:white">
+        Previous work already added:
+      </h2>
+
+      <ol class="govuk-list govuk-list--number" style="color:#fff">
+        <li>Blue Connect</li>
+        <li>Weights Innovation</li>
+      </ol>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6" style="color:white">
+        Have you had another job that has ended in the last 6 months?
+      </h2>
+
+      <form action="another-job-ended-last-six-months" method="post">
+
+        {{ govukRadios({
+          idPrefix: 'pe-another-last-six-months',
+          name: 'peAnotherLastSixMonths',
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "yes",
+            text: "Yes"
+          }, {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
