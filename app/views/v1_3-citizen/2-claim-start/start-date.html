@@ -12,7 +12,7 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Claim start date</span>
-        Confirm your claim start date
+        Do you want your claim to start today?
       </h1>
 
       <form action="start-date" method="post">
@@ -20,7 +20,7 @@
         {% call govukFieldset({
         }) %}
 
-        <p>Your claim will start from today <strong>{{ todaysDate.original | moment }}</strong>.</p>
+
 
         {{ govukRadios({
           classes: "govuk-radios",
@@ -28,7 +28,7 @@
           name: "claimstart",
           fieldset: {
             legend: {
-              text: "Do you want your claim to start from today?",
+              
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
