@@ -1,0 +1,92 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {% if  data['show'] == "errors" %}
+  Error: Inline Error Test Page
+  {% else %}
+  Inline Error Test Page
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="inline" method="post">
+
+        {% set formIDs = {
+          email: { id: "sign-in-email" },
+          password: { id: "sign-in-password" }
+        }%}
+
+        {% if data['sign-in-email'] == "" or data['sign-in-password'] == "" %}
+
+        {% set errorArray = {
+          email: { text: "Enter a valid email address"},
+          password: { text: "Enter a valid password"}
+        }%}
+
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": [
+            {
+              "text": errorArray.email.text,
+              "href": '#' + formIDs.email.id
+            },
+            {
+              "text": errorArray.password.text,
+              "href": '#' + formIDs.password.id
+            }
+          ],
+          classes: 'govuk-!-margin-top-6'
+        }) }}
+
+        {% endif %}
+
+        {% call govukFieldset({
+          legend: {
+            text: 'Errors demo',
+            isPageHeading: true,
+            classes: 'govuk-fieldset__legend--l'
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We’ll only use this to send you a receipt"
+          },
+          id: "sign-in-email",
+          name: "sign-in-email",
+          type: "email",
+          errorMessage: errorArray.email
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Password"
+          },
+          id: "sign-in-password",
+          name: "sign-in-password",
+          type: "password",
+          errorMessage: errorArray.password
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

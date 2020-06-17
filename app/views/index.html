@@ -220,4 +220,48 @@
       </div>'
     }) }}
 
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <span class="govuk-tag">GDS assessment</span>
+  <h2 class="govuk-heading-l">Citizen journey</h2>
+  {#<p>"Personal details" phone number conditionally revealed content</p>#}
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Variation of the citizen journey specifically for the GDS assessment</li>
+  </ul>
+  <a href="gds-citizen/1-eligibility/introduction" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+    Start
+    <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+      <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+    </svg>
+  </a>
+
+  {{ govukDetails({
+    summaryText: "GDS assessment shortcut links",
+    html: '
+      <div class="govuk-clearfix"><div class="govuk-grid-column-one-half">
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="gds-citizen/1-eligibility/residence">Residency</a></li>
+          <li><a href="gds-citizen/2-claim-start/start-date">Claim start date</a></li>
+          <li><a href="gds-citizen/3-details">Personal details (NINO)</a></li>
+          <li><a href="gds-citizen/4-other-benefits">Other benefits</a></li>
+          <li><a href="gds-citizen/5-jury-service">Jury service</a></li>
+          <li><a href="gds-citizen/6-current-employment">Current employment</a></li>
+          <li><a href="gds-citizen/7-previous-employment">Previous employment</a></li>
+          <li><a href="gds-citizen/8-abroad">Worked or claimed benefit outside UK</a></li>
+        <ul>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="gds-citizen/9-pensions/9a-current-pension">Current pension</a></li>
+          <li><a href="gds-citizen/9-pensions/9b-deferred-pension">Deferred pension</a></li>
+          <li><a href="gds-citizen/9-pensions/9c-future-pension">Future pension</a></li>
+          <li><a href="gds-citizen/10-education">Education or training</a></li>
+          <li><a href="gds-citizen/11-availability">Availability</a></li>
+          <li><a href="gds-citizen/check-answers">Check your answers</a></li>
+          <li><a href="gds-citizen/declaration">Declaration</a></li>
+          <li><a href="gds-citizen/confirmation">Confirmation</a></li>
+        </ul>
+      </div>'
+    }) }}
+
 {% endblock %}

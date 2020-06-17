@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Future pension</span>
+        Do you know how much you’ll be paid for this future pension or annuity?
+      </h1>
+
+      <form action="do-you-know-payment-information" method="post">
+
+        {{ govukRadios({
+          idPrefix: "future-pension-know-payment-information",
+          name: "futurePensionDoYouKnowPaymentInformation",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "future-pension-know-payment-information-yes",
+            text: "Yes"
+          }, {
+            value: "future-pension-know-payment-information-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

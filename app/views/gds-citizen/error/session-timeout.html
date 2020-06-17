@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Session time out – DWP - Jobseeker&rsquo;s Allowance – GOV.UK
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-6">Session time out</h1>
+
+        <p>Your session has ended.</p>
+        <p>Due to inactivity your session has timed out, you need to restart the service.</p>
+        <p>
+
+        {{ govukButton({
+            text: "Restart",
+            href: "/gds-citizen/1-eligibility/introduction",
+            classes: "govuk-button--start"
+        }) }}
+        </p>
+    </div>
+  </div>
+
+{% endblock %}

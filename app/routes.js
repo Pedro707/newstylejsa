@@ -12,6 +12,57 @@ router.get('/', function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
+//  ROUTING FOR GDS ASSESSMENT VARIATION -- REMOVE POST ASSESSMENT           //
+//                                                                           //
+///////////////////////////////////////////////////////////////////////////////
+
+// This moves eligibility routing to eligibility directory
+router.use('/gds-citizen/1-eligibility/', require('./views/gds-citizen/1-eligibility/_routes'))
+
+// This moves `abroad` routing to `abroad` directory
+router.use('/gds-citizen/2-claim-start/', require('./views/gds-citizen/2-claim-start/_routes'))
+
+// This moves details routing to details directory
+router.use('/gds-citizen/3-details/', require('./views/gds-citizen/3-details/_routes'))
+
+// Redirect to first question in details sequence
+router.get('/gds-citizen/3-details/', function (req, res) {
+    res.redirect('/gds-citizen/3-details/nino')
+})
+
+// This moves `other-benefits` routing to `other-benefits` directory
+router.use('/gds-citizen/4-other-benefits/', require('./views/gds-citizen/4-other-benefits/_routes'))
+
+// This moves jury-service routing to jury-service directory
+router.use('/gds-citizen/5-jury-service/', require('./views/gds-citizen/5-jury-service/_routes'))
+
+// This moves current-employment routing to current-employment directory
+router.use('/gds-citizen/6-current-employment/', require('./views/gds-citizen/6-current-employment/_routes'))
+
+// This moves previous-employment routing to previous-employment directory
+router.use('/gds-citizen/7-previous-employment/', require('./views/gds-citizen/7-previous-employment/_routes'))
+
+// This moves `abroad` routing to `abroad` directory
+router.use('/gds-citizen/8-abroad/', require('./views/gds-citizen/8-abroad/_routes'))
+
+// This moves `pensions` routing to `pensions` directory
+router.use('/gds-citizen/9-pensions/', require('./views/gds-citizen/9-pensions/_routes'))
+
+// This moves `education` routing to `education` directory
+router.use('/gds-citizen/10-education/', require('./views/gds-citizen/10-education/_routes'))
+
+// This moves `availability` routing to `availability` directory
+router.use('/gds-citizen/11-availability/', require('./views/gds-citizen/11-availability/_routes'))
+
+// This moves `error` routing to `error` directory
+router.use('/gds-citizen/error/', require('./views/gds-citizen/error/_routes'))
+
+// {END OF ROUTING FOR GDS ASSESSMENT VARIATION} ///////////////////////////////////////////
+
+/*    */
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           //
 //  ROUTING FOR VERSION 1.3                                                  //
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
