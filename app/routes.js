@@ -51,9 +51,6 @@ router.use('/gds-citizen/9-pensions/', require('./views/gds-citizen/9-pensions/_
 // This moves `education` routing to `education` directory
 router.use('/gds-citizen/10-education/', require('./views/gds-citizen/10-education/_routes'))
 
-// This moves `availability` routing to `availability` directory
-router.use('/gds-citizen/11-availability/', require('./views/gds-citizen/11-availability/_routes'))
-
 // This moves `error` routing to `error` directory
 router.use('/gds-citizen/error/', require('./views/gds-citizen/error/_routes'))
 
