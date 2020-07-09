@@ -12,11 +12,11 @@
     Apply for New Style Jobseeker&rsquo;s Allowance
   </h1>
 
-{# FOR THE PURPOSE OF THE GDS ASSESSMENT ONLY #}
+{# FOR THE PURPOSE OF THE GDS ASSESSMENT ONLY
 
   <span class="govuk-tag">GDS assessment</span>
   <h2 class="govuk-heading-l">Citizen journey</h2>
-  {#<p>"Personal details" phone number conditionally revealed content</p>#}
+  #<p>"Personal details" phone number conditionally revealed content</p>#
   <ul class="govuk-list govuk-list--bullet">
     <li>Variation of the citizen journey specifically for the GDS assessment</li>
   </ul>
@@ -57,7 +57,7 @@
 
   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-{# #}
+#}
 
   <span class="govuk-tag">Latest version</span>
   <h2 class="govuk-heading-l">Citizen journey</h2>
@@ -110,6 +110,16 @@
 <!-- FEATURE IDEAS -->
 
   <h2 class="govuk-heading-l">Feature designs</h2>
+
+  {{ govukDetails({
+    summaryText: "No Fixed Address (NFA) or Person Without Address (PWA)",
+    html: '
+      <div class="govuk-clearfix"><div class="govuk-grid-column-one-half">
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="design-ideas/nfa-pwa/iteration-1/index">Iteration 1 [8th July 2020]</a></li>
+        </ul>
+      </div>'
+  }) }}
 
   {{ govukDetails({
     summaryText: "Claim start date warning [22nd June 2020]",

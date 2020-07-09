@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Apply for New Style Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">No Fixed Address (NFA) or Person Without Address (PWA)</span>
+        Iteration 1 &ndash; 8th July 2020
+      </h1>
+
+      <p class="govuk-body">
+
+        {{ govukDetails({
+          summaryText: "Common across all variations of iteration 1",
+          html: '
+            <div class="govuk-clearfix">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>citizen is navigated to a separate page requesting them to acknowledge either NFA or PWA (the need to differentiate has been identified)</li>
+                <li>in each case, should the citizen not have a primary address then the option of entering a second address has been removed</li>
+                <li>postal address question has been wrapped into the primary address question page
+                <li>although choosing NO to the same address for post will continue to a separate postal address capture page</li>
+                <li>the decision not to include the postal address on the same page as the primary address is due to the accessibility issues of a complex form inside a conditional reveal</li>
+              </ul>
+            </div>'
+        }) }}
+
+        <a href="variation-1/address" class="govuk-body-l govuk-!-font-weight-bold">Variation 1 - INSET component with link</a>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>INSET component, with supportive text and an exit route when citizen doesn't have an address</li>
+        </ul>
+
+        <a href="variation-2/address" class="govuk-body-l govuk-!-font-weight-bold">Variation 2 - DETAILS component with link</a>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>DETAILS component, with supportive text and an exit route when citizen doesn't have an address</li>
+        </ul>
+
+        <a href="variation-3/address" class="govuk-body-l govuk-!-font-weight-bold">Variation 3 - INSET and SECONDARY BUTTON combo</a>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>INSET component and a SECONDARY BUTTON adjacent to the primary navigation button</li>
+        </ul>
+
+        <a href="variation-4/address" class="govuk-body-l govuk-!-font-weight-bold">Variation 4 - DETAILS and SECONDARY LINK combo</a>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>DETAILS component and a SECONDARY LINK beneath the primary navigation button</li>
+        </ul>
+
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

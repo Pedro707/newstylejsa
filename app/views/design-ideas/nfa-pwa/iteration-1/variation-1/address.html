@@ -1,0 +1,98 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        What is your address?
+      </h1>
+
+      {{ govukInsetText({
+        html:
+          '<p>Something here about the need to acknowledge NFA or PWA.</p>
+          <p><a href="/design-ideas/nfa-pwa/iteration-1/variation-1/nfa-or-pwa">Here&apos;s an exit route as I don&apos;t have an address</a>, this skips the need for the citizen to enter one.<p>'
+      }) }}
+
+      <form action="address" method="get">
+
+        {% call govukFieldset({
+        }) %}
+
+        {{ govukInput({
+            label: {
+            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+            },
+            id: "address-line-1",
+            name: "address-line-1",
+            value: data['address-line-1']
+        }) }}
+
+        {{ govukInput({
+            label: {
+            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address-line-2",
+            name: "address-line-2",
+            value: data['address-line-2']
+        }) }}
+
+        {{ govukInput({
+            label: {
+            text: 'Town or city'
+            },
+            classes: 'govuk-!-width-two-thirds',
+            id: "address-town",
+            name: "address-town",
+            value: data['address-town']
+        }) }}
+
+        {{ govukInput({
+            label: {
+            text: 'Postcode'
+            },
+            classes: 'govuk-input--width-10',
+            id: "address-postcode",
+            name: "address-postcode",
+            value: data['address-postcode']
+        }) }}
+
+      {% endcall %}
+
+      <h2 class="govuk-heading-m">
+        Can we send letters about your claim to this address?
+      </h2>
+      
+      {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: 'nfa-pwa-v1',
+          name: 'nfa-pwa-v1-postal-address-radios',
+          items: [
+            {
+              value: "yes~/design-ideas/nfa-pwa/iteration-1/variation-1/contact-phone",
+              text: "Yes"
+            },
+            {
+              value: "no~/design-ideas/nfa-pwa/iteration-1/variation-1/address-postal-address",
+              text: "No"
+            }
+          ]
+        })
+      }}
+
+      {{ govukButton({
+          text: "Continue"
+      }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        How do you identify yourself?
+      </h1>
+
+      <form action="nfa-or-pwa" method="get">
+
+        {{ govukRadios({
+            idPrefix: 'details-nfa-or-pwa',
+            name: 'detailsNFAorPWA',
+            classes: "govuk-radios",
+            items: [
+              {
+                value: "nfa~/design-ideas/nfa-pwa/iteration-1/variation-3/contact-phone",
+                text: "No fixed address",
+                hint: {
+                  text: "Additional hint text to be shown here."
+                }
+              },
+              {
+                value: "pwa~/design-ideas/nfa-pwa/iteration-1/variation-3/contact-phone",
+                text: "Person without an address",
+                hint: {
+                  text: "Additional hint text to be shown here."
+                }
+              }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
