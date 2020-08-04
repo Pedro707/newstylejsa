@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Claim start date</span>
+        Since 22 July 2020 have you been on holiday?
+      </h1>
+
+      <form action="guard" method="post">
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ce-currently-working",
+          name: "ceCurrentlyWorking",
+          hint: {
+            text: ""
+          },
+          items: [{
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "6-full-time-education"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
