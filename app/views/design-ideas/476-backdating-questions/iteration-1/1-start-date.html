@@ -20,8 +20,8 @@
         {% call govukFieldset({
         }) %}
 
-        <p>You can choose an earlier date if you think you could have claimed sooner. You will need to give the reasons why you did not claim before today.</p>
-        
+        <p>You can choose an earlier date if you think you could have claimed sooner. You will need tell us the reasons why you did not claim before today.</p>
+
         {{ govukDetails({
           summaryText: "Choosing an earlier start date",
           html: "<p>You can only claim from an earlier date if you were unable to apply sooner.</p><p>For example, if you were told by a work coach or other official you were not eligible or if you had a family emergency.</p>"
@@ -33,7 +33,7 @@
           name: "claimstart",
           fieldset: {
             legend: {
-              
+
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
