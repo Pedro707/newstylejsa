@@ -20,13 +20,12 @@
         {% call govukFieldset({
         }) %}
 
-        <p>You can choose an earlier date if you think you could have claimed sooner. You will need to tell us the reasons why you did not claim before today.</p>
 
-        {{ govukDetails({
-          summaryText: "Choosing an earlier start date",
-          html: "<p>You can only claim from an earlier date if you were unable to apply sooner.</p><p>For example, you were told by a work coach you were not eligible or you had a family emergency.</p>"
-        }) }}
 
+        <p>You can choose an earlier date if you think you could have claimed sooner. You will need to tell us why you did not claim before today. </p>
+        <div class="govuk-inset-text">
+          <p>You can only choose an earlier date if you were unable to claim sooner. For example, you were told by a work coach you were not eligible or you had a family emergency.</p>
+</div>
         {{ govukRadios({
           classes: "govuk-radios",
           idPrefix: "change-claim-start",
