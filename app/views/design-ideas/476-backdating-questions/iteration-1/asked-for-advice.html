@@ -1,0 +1,65 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Claim start date</span>
+        Have you asked for advice about claiming New Style Jobseeker&rsquo;s Allowance since 22 July 2020?
+      </h1>
+
+      <form action="asked-for-advice" method="post">
+
+        {% set askedAdviceYes %}
+
+          {{ govukCharacterCount({
+            name: "more-information",
+            id: "more-information",
+            rows: 8,
+            maxlength: 400,
+            label: {
+              text: "Tell us more information."
+            }
+          }) }}
+
+
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: 'asked-for-advice',
+          name: 'asked-for-advice',
+          fieldset: {
+            legend: {
+              text: "You will need to tell us who you spoke to, when you spoke to them and what information you were given.",
+              isPageHeading: false
+            }
+          },
+          items: [{
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: askedAdviceYes
+            }
+          }, {
+            value: "no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "why-have-you-not-claimed"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

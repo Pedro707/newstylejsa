@@ -12,14 +12,15 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Claim start date</span>
-        Have you been in full-time education since 22 July 2020?
+        Have you been on holiday since 22 July 2020?
       </h1>
 
-      <form action="guard" method="post">
+      <form action="been-on-holiday" method="post">
+
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          idPrefix: "ce-currently-working",
-          name: "ceCurrentlyWorking",
+          idPrefix: "been-on-holiday",
+          name: "beenOnHoliday",
           hint: {
             text: ""
           },
@@ -35,7 +36,7 @@
 
         {{ govukButton({
             text: "Continue",
-            href: "7-why-have-you-not-claimed"
+            href: "full-time-education"
         }) }}
 
       </form>

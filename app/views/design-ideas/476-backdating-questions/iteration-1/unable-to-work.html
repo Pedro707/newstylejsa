@@ -12,14 +12,15 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Claim start date</span>
-        Have you been in paid or voluntary work since 22 July 2020?
+        Have you been ill and unable to work since 22 July 2020?
       </h1>
 
-      <form action="guard" method="post">
+      <form action="unable-to-work" method="post">
+
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          idPrefix: "ce-currently-working",
-          name: "ceCurrentlyWorking",
+          idPrefix: "unable-to-work",
+          name: "unableToWork",
           hint: {
             text: ""
           },
@@ -35,7 +36,7 @@
 
         {{ govukButton({
             text: "Continue",
-            href: "4-unable-to-work"
+            href: "been-on-holiday"
         }) }}
 
       </form>

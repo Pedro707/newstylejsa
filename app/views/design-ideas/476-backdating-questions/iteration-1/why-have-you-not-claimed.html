@@ -14,22 +14,19 @@
         <span class="govuk-caption-xl">Claim start date</span>
         Tell us why you did not claim New Style Jobseeker’s Allowance (JSA) before today
       </h1>
-      <p>Give as much information as you can about why you did not claim sooner. For example, if you thought you could not claim you must tell us why you thought this.</p>
 
-      <form action="what-other-benefits" method="post">
+      <form action="why-did-you-not-claim" method="post">
+
         {% call govukFieldset({
         }) %}
 
         {{ govukCharacterCount({
-          name: "more-detail",
-          id: "more-detail",
+          name: "why-did-you-not-claim",
+          id: "why-did-you-not-claim",
           rows: 8,
           maxlength: 400,
           label: {
-            html:
-              "
-
-    "
+            text: "Give as much information as you can about why you did not claim sooner. For example, if you thought you could not claim you must tell us why you thought this."
           }
         }) }}
 
@@ -37,7 +34,7 @@
 
         {{ govukButton({
           text: "Continue",
-          href: "8-nino"
+          href: "nino"
         }) }}
       </form>
     </div>
