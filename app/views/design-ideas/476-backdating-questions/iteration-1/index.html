@@ -9,7 +9,7 @@
   Backdating page flow:
 
     index [Do you want your claim to start today?]
-    
+
     Answer "NO":
       change-date [When do you want your claim to start?]
       any-paid-work [Have you been in paid or voluntary work since <date>?]
@@ -19,7 +19,7 @@
       asked-for-advice [Have you asked for advice about claiming NSJSA since <date>?]
       why-have-you-not-claimed [Tell us why you did not claim NSJSA before today]
       {Rejoin flow as per answering "YES"}
-    
+
     Answer "YES":
       nino [What is your National Insurance number?]
 #}
@@ -30,16 +30,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Claim start date</span>
-        Do you want your claim to start today?
+        <span class="govuk-caption-xl">Application start date</span>
+        Do you want your application to start today?
       </h1>
 
       <p class="govuk-body">
-        You can choose an earlier date if you think you could have claimed sooner. You will need to tell us why you did not claim before today.
+        You can choose an earlier date if you think you could have applied sooner. You will need to tell us why you did not apply before today.
       </p>
 
       {{ govukInsetText({
-        text: "You can only choose an earlier date if you were unable to claim sooner. For example, you were told by a work coach you were not eligible or you had a family emergency."
+        text: "We can only consider an earlier date if you were unable to apply sooner. For example, you were told you would not get New Style Jobseeker's Allowance or you had a family emergency."
       }) }}
 
       <form action="start-date" method="post">
@@ -61,11 +61,11 @@
           items: [
             {
               value: "yes~/design-ideas/476-backdating-questions/iteration-1/nino",
-              html: "Yes, I want my claim to start from today <strong>4 August 2020</strong>"
+              html: "Yes, I want my application to start from today <strong>4 August 2020</strong>"
             },
             {
               value: "no~/design-ideas/476-backdating-questions/iteration-1/change-date",
-              html: "No, I want my claim to start from an earlier date"
+              html: "No, I want my application to start from an earlier date"
             }
           ]
         }) }}

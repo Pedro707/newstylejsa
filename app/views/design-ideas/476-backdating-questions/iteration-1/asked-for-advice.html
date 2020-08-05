@@ -11,10 +11,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Claim start date</span>
-        Have you asked for advice about claiming New Style Jobseeker&rsquo;s Allowance since 22 July 2020?
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you asked for advice about applying for New Style Jobseeker&rsquo;s Allowance since 22 July 2020?
       </h1>
-
+<p>This could be spoken or written advice from a government department, a legal or professional adviser or from an advice agency, such as Citizens Advice.</p>
       <form action="asked-for-advice" method="post">
 
         {% set askedAdviceYes %}
@@ -25,7 +25,7 @@
             rows: 8,
             maxlength: 400,
             label: {
-              text: "Tell us more information."
+              text: "Tell us who you contacted, when you contacted them and what information you were given."
             }
           }) }}
 
@@ -37,7 +37,7 @@
           name: 'asked-for-advice',
           fieldset: {
             legend: {
-              text: "You will need to tell us who you spoke to, when you spoke to them and what information you were given.",
+              text: "",
               isPageHeading: false
             }
           },
