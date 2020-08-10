@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent%}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Confirmation 9 April 2020 start date
+      </h1>
+
+      {{ govukInsetText({
+        html: "Based on your new start date (<strong>9 April 2020</strong>), the following information previosuly entered will be affected."
+      }) }}
+
+      <h2 class="govuk-heading-m">Jury service</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>dates entered for jury service are beyond the 12 weeks allowed</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-6">You will be able to change these dates should you continue with the start date change.</p>
+
+      <h2 class="govuk-heading-m">Previous employment</h2>
+      <p class="govuk-body">The following previous employment will be <strong>removed</strong> from your application as they are beyond the 6 months allowed:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Kingfisher Group</li>
+        <li>Tesco</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-6">You will be able to enter additional previous employment should you continue with the start date change.</p>
+
+      <h2 class="govuk-heading-m">Worked or claimed benefits outside of the United Kingdom</h2>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>your new claim start date maybe beyond the 4 years allowed for having worked or claimed benefits outside of the United Kingdom</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Current pensions</h2>
+      <p class="govuk-body">The following current pensions were orginally entered as increasing within 6 months. The increases now occur outside of the 6 month period and have been changed accordingly:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>Aviva</li>
+        <li>Scottish Widows</li>
+        <li>Legal &amp; General</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Future pensions</h2>
+      <p class="govuk-body">The following future pensions will be <strong>removed</strong> from your application as they are beyond the 6 months allowed:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Canada Life</li>
+        <li>LVE</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-6">You will be able to enter additional future pensions should you continue with the start date change.</p>
+
+      <h2 class="govuk-heading-m">Education and training</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>dates entered for education and training are beyond the 4 years allowed</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-7">You will be able to change these dates should you continue with the start date change.</p>
+
+      {{ govukButton({
+        text: "No, cancel start date change",
+        classes: "inline-item govuk-!-margin-right-2",
+        href: "check-answers"
+      }) }}
+
+      {{ govukButton({
+        text: "Yes, confirm start date change",
+        classes: "govuk-button--secondary",
+        href: "jury-service-have-been"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

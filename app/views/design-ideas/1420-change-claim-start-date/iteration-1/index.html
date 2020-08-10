@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Enable a change to claim start date (by citizen only)</span>
+        1420: Iteration 1 (10th August 2020)
+      </h1>
+
+      <p class="govuk-body">
+        Change claim start date affects a number of sections that may, or maynot, have had data 
+        input by the citizen during the course of the information gather.
+      </p>
+
+      <p class="govuk-body">In particular, these sections are:</p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-6">
+        <li>
+          <strong>Jury service</strong><br>Citizens will be asked to confirm if they've been on jury service in the last 12 weeks against the new start date
+        </li>
+        <li>
+          <strong>Previous employment ended within the last 6 months</strong><br>In such instances previous employment entries will be 
+          removed if beyond the 6 month window, citizens will be asked if they've further previous
+          employment they wish to enter as part of their application against the new start date
+        </li>
+        <li>
+          <strong>Worked or claimed benefits outside of the United Kingdom</strong><br>Citizens will be asked to confirm if they've 
+          worked or claimed benefits outside of the United Kingdom in the last 4 years against the new start date (suspected edge case)
+        </li>
+        <li>
+          <strong>Current pension that is due to increase within 6 months</strong><br>Any current pensions already entered and acknowledged
+          as increasing in the next 6 months will be amended accordingly in the event the new start date invalidates this
+        </li>
+        <li>
+          <strong>Future pensions within 6 months</strong><br>In such instances future pension entries will be 
+          removed if beyond the 6 month window, citizens will be asked if they've further future
+          pensions they wish to enter as part of their application against the new start date
+        </li>
+        <li>
+          <strong>Education and training</strong><br>Citizens will be asked to confirm if they've 
+          undertaken any education or training in the last 4 years against the new start date (suspected edge case)
+        </li>
+      </ul>
+
+      <p class="govuk-body">From check your answers:</p>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced govuk-!-margin-bottom-6">
+        <li>from "Check your answers"</li>
+        <li>citizens "Change" the start date</li>
+        <li>citizens are asked to confirm their action</li>
+        <li>citizens are then asked to enter the new start date</li>
+        <li>citizens are then notified as to which sections detailed above are affected </li>
+        <li>citizens then confirm if they wish to proceed, whereby they will enter new/amend the information previously gathered</li>
+      </ol>
+
+      <p class="govuk-body govuk-!-margin-bottom-6">Please note: this <strong>does not</strong> include the new eligibilty question set.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "iteration-1/check-answers"
+      }) }}
+
+    </div>
+
+  </div>
+{% endblock %}
