@@ -47,6 +47,10 @@
 
         {% call govukFieldset({
         }) %}
+        {{ govukWarningText({
+          text: "You cannot change the start date after you have chosen it.",
+          iconFallbackText: "Warning"
+        }) }}
 
         {{ govukRadios({
           classes: "govuk-radios",
