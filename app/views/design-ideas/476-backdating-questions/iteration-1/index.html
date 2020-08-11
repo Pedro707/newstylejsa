@@ -46,11 +46,7 @@
       <form action="start-date" method="post">
 
         {% call govukFieldset({
-        }) %}
-        {{ govukWarningText({
-          text: "You cannot change the start date later in the application.",
-          iconFallbackText: "Warning"
-        }) }}
+    
 
         {{ govukRadios({
           classes: "govuk-radios",
