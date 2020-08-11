@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -19,8 +18,81 @@
       </p>
       <form action="been-on-holiday" method="post">
 
+        {% set holidayHtml %}
+        {{ govukDateInput({
+            id: 'holiday-start',
+            name: 'holidayStart',
+            fieldset: {
+              legend: {
+                text: 'Leave date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment('subtract', 12, 'months')
+            },
+            items: [
+              {
+                name: 'holidayStartDay',
+                value: data['holiday-start-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'holidayStartMonth',
+                value: data['holiday-start-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'holidayStartYear',
+                value: data['holiday-start-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+
+        {{ govukDateInput({
+            id: 'holiday-finish',
+            name: 'holidayFinish',
+            fieldset: {
+              legend: {
+                text: 'Return date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment
+            },
+            items: [
+              {
+                name: 'holidayFinishDay',
+                value: data['holiday-finish-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'holidayFinishMonth',
+                value: data['holiday-finish-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'holidayFinishYear',
+                value: data['holiday-finish-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+        {% endset -%}
+
         {{ govukRadios({
-          classes: "govuk-radios--inline",
           idPrefix: "been-on-holiday",
           name: "beenOnHoliday",
           hint: {
@@ -28,7 +100,10 @@
           },
           items: [{
             value: "yes",
-            text: "Yes"
+            text: "Yes",
+            conditional: {
+              html: holidayHtml
+            }
           },
           {
             value: "no",

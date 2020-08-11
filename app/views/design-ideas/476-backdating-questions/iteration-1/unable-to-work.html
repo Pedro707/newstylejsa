@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -17,8 +16,81 @@
 
       <form action="unable-to-work" method="post">
 
+        {% set illnessHtml %}
+        {{ govukDateInput({
+            id: 'illness-start',
+            name: 'illnessStart',
+            fieldset: {
+              legend: {
+                text: 'Illness start date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment('subtract', 12, 'months')
+            },
+            items: [
+              {
+                name: 'illnessStartDay',
+                value: data['illness-start-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'illnessStartMonth',
+                value: data['illness-start-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'illnessStartYear',
+                value: data['illness-start-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+
+        {{ govukDateInput({
+            id: 'illness-finish',
+            name: 'illnessFinish',
+            fieldset: {
+              legend: {
+                text: 'Illness end date',
+                isPageHeading: false,
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            hint: {
+              html: 'For example, ' + todaysDate.original | moment
+            },
+            items: [
+              {
+                name: 'illnessFinishDay',
+                value: data['illness-finish-day'],
+                classes: 'govuk-input--width-2',
+                label: 'Day'
+              },
+              {
+                name: 'illnessFinishMonth',
+                value: data['illness-finish-month'],
+                classes: 'govuk-input--width-2',
+                label: 'Month'
+              },
+              {
+                name: 'illnessFinishYear',
+                value: data['illness-finish-year'],
+                classes: 'govuk-input--width-4',
+                label: 'Year'
+              }
+            ]
+            })
+          }}
+        {% endset -%}
+
         {{ govukRadios({
-          classes: "govuk-radios--inline",
           idPrefix: "unable-to-work",
           name: "unableToWork",
           hint: {
@@ -26,7 +98,10 @@
           },
           items: [{
             value: "yes",
-            text: "Yes"
+            text: "Yes",
+            conditional: {
+              html: illnessHtml
+            }
           },
           {
             value: "no",
