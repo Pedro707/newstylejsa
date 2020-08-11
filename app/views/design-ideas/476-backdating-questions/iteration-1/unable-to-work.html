@@ -13,6 +13,9 @@
         <span class="govuk-caption-xl">Application start date</span>
         Have you been unable to work because of illness since 22 July 2020?
       </h1>
+      <p class="govuk-body">
+        You will need to tell us the dates you were unable to work.
+      </p>
 
       <form action="unable-to-work" method="post">
 
@@ -22,7 +25,7 @@
             name: 'illnessStart',
             fieldset: {
               legend: {
-                text: 'Illness start date',
+                text: 'Enter the date the illness started',
                 isPageHeading: false,
                 classes: 'govuk-fieldset__legend--m'
               }
@@ -58,7 +61,7 @@
             name: 'illnessFinish',
             fieldset: {
               legend: {
-                text: 'Illness end date',
+                text: 'Enter the date the illness ended',
                 isPageHeading: false,
                 classes: 'govuk-fieldset__legend--m'
               }
