@@ -4,82 +4,63 @@
   DWP - Jobseeker&rsquo;s Allowance
 {% endblock %}
 
-{#
-  Backdating page flow:
-
-    index [Do you want your claim to start today?]
-
-    Answer "NO":
-      change-date [When do you want your claim to start?]
-      why-have-you-not-claimed [Tell us why you did not claim NSJSA before today]
-      any-paid-work [Have you been in paid or voluntary work since <date>?]
-      unable-to-work [Have you been ill and unable to work since <date>?]
-      been-on-holiday [Have you been on holiday since <date>?]
-      full-time-education [Have you been in full-time education since <date>?]
-      asked-for-advice [Have you asked for advice about claiming NSJSA since <date>?]
-
-    {Rejoin flow as per answering "YES"}
-
-    Answer "YES":
-      nino [What is your National Insurance number?]
-#}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        <span class="govuk-caption-xl">Application start date</span>
-        Do you want your application to start today?
+        <span class="govuk-caption-xl">Revised backdating questions</span>
+        476: Iteration 1 (4th August 2020)
       </h1>
 
       <p class="govuk-body">
-        You can choose an earlier date if you think you could have applied sooner. You will need to tell us why you did not apply before today.
+        With regards to <strong>Check your answers</strong>, it has been noted that:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>4x current employer details can be entered</li>
+          <li>4x previous employer details can be entered</li>
+          <li>9x pensions can be entered; this being a combination of current, deferred, and future pensions (not 9 of each)</li>
+        </ul>
       </p>
 
-      {{ govukInsetText({
-        text: "We can only consider an earlier date if you were unable to apply sooner. For example, you were told you would not get New Style Jobseeker's Allowance or you had a family emergency."
-      }) }}
+      <p class="govuk-body">
+        It is worth nothing, that in the event the maximum number of pensions have been entered (for example, 9x current pensions) 
+        then the subsequent removal of one or more current pensions does not open up the opportunity to 
+        then add deferred or future pensions.
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a class="govuk-link" href="/design-ideas/476-backdating-questions/iteration-1/start-date">Citizen view question set</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/design-ideas/476-backdating-questions/iteration-1/check-answers">Citizen view "Check your answers"</a>
+         </li>
+        </ul>
+      </p>
 
-      <form action="start-date" method="post">
+      <h2 class="govuk-heading-m">
+        Customer statement
+      </h2>
+      
+      <p class="govuk-body">
+        The customer statement is held within the admin prototype:
+      </p>
 
-        {% call govukFieldset({}) %}
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="https://newstylejsa-admin.herokuapp.com/common/customer-statement-revision-1" target="_blank">Work coach view "Customer statement"</a>
+        </li>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <strong>URL:</strong> https://newstylejsa-admin.herokuapp.com/
+          </li>
+          <li>
+            <strong>Username:</strong> nsjsa-admin
+          </li>
+          <li>
+            <strong>Password:</strong> nimda-asjsn
+          </li>
+        </ul>                
+      </ul>
 
-        {{ govukWarningText({
-          text: "You cannot change the start date later in the application.",
-          iconFallbackText: "Warning"
-        }) }}
-
-        {{ govukRadios({
-          classes: "govuk-radios",
-          idPrefix: "change-claim-start",
-          name: "claimstart",
-          fieldset: {
-            legend: {
-
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes~/design-ideas/476-backdating-questions/iteration-1/nino",
-              html: "Yes, I want my application to start from today <strong>12 August 2020</strong>"
-            },
-            {
-              value: "no~/design-ideas/476-backdating-questions/iteration-1/change-date",
-              html: "No, I want my application to start from an earlier date"
-            }
-          ]
-        }) }}
-        {% endcall %}
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
     </div>
   </div>
 

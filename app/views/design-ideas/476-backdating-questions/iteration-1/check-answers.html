@@ -1,0 +1,911 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent %}{% endblock %}
+
+{% block content %}
+
+  {% set currentlyworking = false %}
+  {% set jservice = false %}
+  {% set resultjservice = "no" %}
+  {% set startDateItems = todaysDate.original | moment %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Application start date
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Claim start date</dt>
+          <dd class="govuk-summary-list__value">22/07/2020</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Why did you not apply before today?</dt>
+          <dd class="govuk-summary-list__value">{ENTERED DATA}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">In paid work since 22 July 2020?</dt>
+          <dd class="govuk-summary-list__value">Yes | No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Unable to work because of illness since 22 July 2020?</dt>
+          <dd class="govuk-summary-list__value">Yes, {DD/MM/YYYY} to {DD/MM/YYYY} | No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Travelled outside of England, Wales or Scotland since 22 July 2020?</dt>
+          <dd class="govuk-summary-list__value">Yes, {DD/MM/YYYY} to {DD/MM/YYYY} | No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Had been in full-time education since 22 July 2020?</dt>
+          <dd class="govuk-summary-list__value">Yes | No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Had asked for advice about applying since 22 July 2020?</dt>
+          <dd class="govuk-summary-list__value">Yes, {ENTERED DATA} | No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Personal details
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">National Insurance number</dt>
+          <dd class="govuk-summary-list__value">QQ 12 34 56 C</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Name</dt>
+          <dd class="govuk-summary-list__value">Miss Sarah Philips</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Date of birth</dt>
+          <dd class="govuk-summary-list__value">27/11/1972</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Home address</dt>
+          <dd class="govuk-summary-list__value">1 Sample Lane, Sampletown. SA4 7SH</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you want to add a different address for your post?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Telephone number</dt>
+          <dd class="govuk-summary-list__value">01234984123</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you have an email we can contact you on?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your email address?</dt>
+          <dd class="govuk-summary-list__value">sarah.phillips@example.com</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Bank details
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Bank details</dt>
+          <dd class="govuk-summary-list__value">
+            <strong>Account holder:</strong> John Smith<br>
+            <strong>Sort code:</strong> 15-00-11<br>
+            <strong>Account number:</strong> 1234567
+          </dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Other benefits
+      </h2>
+      
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you waiting to hear about any other benefits?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What other benefits are you waiting to hear about?</dt>
+          <dd class="govuk-summary-list__value">ESA, hardship fund, housing</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Jury service
+      </h2>
+      
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Have you been on jury service in the last 12 weeks?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When was this jury service?</dt>
+          <dd class="govuk-summary-list__value">01/06/2020 to 05/07/2020</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Current work
+      </h2>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you in any form of work at the moment?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current employer - First
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is this paid or voluntary?</dt>
+          <dd class="govuk-summary-list__value">Paid</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often are you paid?</dt>
+          <dd class="govuk-summary-list__value">Every week</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your net pay?</dt>
+          <dd class="govuk-summary-list__value">£80.00</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the name of your current employer?</dt>
+          <dd class="govuk-summary-list__value">Tesco</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your current employer?</dt>
+          <dd class="govuk-summary-list__value">1 Sample Lane, Sampletown, SA4 7SH</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the phone number for your current employer (optional)?</dt>
+          <dd class="govuk-summary-list__value">01234123456</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many hours a week do you normally work on this job?</dt>
+          <dd class="govuk-summary-list__value">2</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you self-employed or a company director in this job?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove employer details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current employer - Second
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is this paid or voluntary?</dt>
+          <dd class="govuk-summary-list__value">Voluntary</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Can you choose if you’re paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you get paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the name of your current employer?</dt>
+          <dd class="govuk-summary-list__value">Blueridge Doors Limited</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your current employer?</dt>
+          <dd class="govuk-summary-list__value">13a Sample Road, Sampletown, LS2 7SH</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the phone number for your current employer (optional)?</dt>
+          <dd class="govuk-summary-list__value">0777050505</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many hours a week do you normally work on this job?</dt>
+          <dd class="govuk-summary-list__value">3</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you self-employed or a company director in this job?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove employer details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current employer - Third
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is this paid or voluntary?</dt>
+          <dd class="govuk-summary-list__value">Voluntary</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Can you choose if you’re paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you get paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the name of your current employer?</dt>
+          <dd class="govuk-summary-list__value">Avec Glass PLC</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your current employer?</dt>
+          <dd class="govuk-summary-list__value">13a Sample Terrace, Sampletown, DN20 4LP</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the phone number for your current employer (optional)?</dt>
+          <dd class="govuk-summary-list__value">0123456789</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many hours a week do you normally work on this job?</dt>
+          <dd class="govuk-summary-list__value">1</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you self-employed or a company director in this job?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove employer details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current employer - Fourth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Is this paid or voluntary?</dt>
+          <dd class="govuk-summary-list__value">Voluntary</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Can you choose if you’re paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you get paid for this voluntary work?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the name of your current employer?</dt>
+          <dd class="govuk-summary-list__value">Bridgewater Printers</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your current employer?</dt>
+          <dd class="govuk-summary-list__value">Printing Press Avenue, Sampletown, BD2 7HP</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the phone number for your current employer (optional)?</dt>
+          <dd class="govuk-summary-list__value">01707486246</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many hours a week do you normally work on this job?</dt>
+          <dd class="govuk-summary-list__value">3</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you self-employed or a company director in this job?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove employer details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m">
+        Additional current employment
+      </h3>
+      <p class="govuk-body">
+        If you have more, please bring evidence of these to your job centre interview.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Previous employment
+      </h2>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Have you had a job that ended in the last 6 months?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Previous employer - First
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When did you work for this employer?</dt>
+          <dd class="govuk-summary-list__value">01/01/2020 to 12/02/2020</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Why did this job end?</dt>
+          <dd class="govuk-summary-list__value">End of contract</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the name of your previous employer?</dt>
+          <dd class="govuk-summary-list__value">ASDA</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your previous employer?</dt>
+          <dd class="govuk-summary-list__value">ASDA HQ, Leeds</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the phone number of your previous employer? (optional)</dt>
+          <dd class="govuk-summary-list__value">01132505505</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Were you self-employed or a company director?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Do you expect to receive any payments because this job has ended in the last 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:left" href="#">Add another employer</a>
+        <a class="govuk-link" style="float:right" href="#">Remove employer details</a>
+      </p>
+      <p class="govuk-body"><br></p>
+
+      <h2 class="govuk-heading-l">
+        Working or claiming benefit overseas
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Have you worked or claimed benefit outside of the United Kingdom in the last 4 years?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change</a></dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        Current pension
+      </h2>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Are you getting money from a pension or annuity?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - First
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Annuita</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">3 Kingsway, Dartford, DA8 9DO</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every week</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£20.00</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When will it increase?</dt>
+          <dd class="govuk-summary-list__value">October</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Second
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Pensionera</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">88 The Grove, Truro, TR53 6MR</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every month</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£30.00</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Third
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Equally</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">65 High Street, Hemel Hempstead, HP16 7ZE</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Twice a week</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£50.12</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When will it increase?</dt>
+          <dd class="govuk-summary-list__value">November</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Fourth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Trioutlay</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">451 South Street, Llandrindod Wells, LD20 9QT</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every 2 weeks</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£12.92</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Fifth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Lloydings</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">60 Victoria Street, Blackburn, BB29 4LJ</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every 3 months</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£93.29</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When will it increase?</dt>
+          <dd class="govuk-summary-list__value">October</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Sixth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Income Hill</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">19 Queens Road, Huddersfield, HD28 7AB</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Twice a year</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£12.92</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Seventh
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Appoined</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">26 Park Lane, Cambridge, CB94 9RQ</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every 2 weeks</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£27.86</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Eighth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Payment Later</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">27 Church Road, Southall, UB94 7VH</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every 2 weeks</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£1.19</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">No</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h3 class="govuk-heading-m" style="float:left">
+        Current pension - Ninth
+      </h3>
+      <a class="govuk-link" style="float:right" href="#">
+        Change
+      </a>
+      
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s the name of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">Crossepay</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What is the address of your pension or annuity provider?</dt>
+          <dd class="govuk-summary-list__value">17 Park Avenue, Edinburgh, EH72 2MF</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How often is your pension or annuity paid?</dt>
+          <dd class="govuk-summary-list__value">Every week</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What’s your gross pension?</dt>
+          <dd class="govuk-summary-list__value">£20.19</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Does your pension increase in the next 6 months?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When will it increase?</dt>
+          <dd class="govuk-summary-list__value">December</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      <p class="govuk-body govuk-!-margin-bottom-9">
+        <a class="govuk-link" style="float:right" href="#">Remove pension details</a>
+      </p>
+      <br>
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-9">
+        Deferred pensions
+      </h2>
+
+      <h2 class="govuk-heading-l">
+        Future pensions
+      </h2>
+
+      <br>
+
+      <h3 class="govuk-heading-m">
+        Additional pensions
+      </h3>
+      <p class="govuk-body">
+        You have entered a maximum number of 9 pensions. Please bring evidence of any other pensions to your job centre visit.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Education and training
+      </h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Have you been in education or training in the last 4 years?</dt>
+          <dd class="govuk-summary-list__value">Yes</dd>
+          <dd class="govuk-summary-list__actions">Change</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What was the name of the course?</dt>
+          <dd class="govuk-summary-list__value">Computer Science</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">What was the name of the education or training provider?</dt>
+          <dd class="govuk-summary-list__value">The Open University</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">How many hours a week did you spend on this course?</dt>
+          <dd class="govuk-summary-list__value">20</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">When did you attend this course?</dt>
+          <dd class="govuk-summary-list__value">01/09/2019 to 21/07/2020</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "index"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
