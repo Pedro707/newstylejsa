@@ -1,0 +1,33 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">Based on your anwsers, you may not be eligible for New Style Jobseeker's Allowance (JSA)</h1>
+
+            <section>
+                <p class="govuk-body">This is because you must live in England, Scotland or Wales to get New Style JSA.</p>
+
+            </section>
+
+            <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
+            {{ govukButton({
+                text: "Find other benefits",
+                href: "https://www.gov.uk/benefits-calculators"
+            }) }}
+
+            <h2 class="govuk-heading-m">Do you still want to apply?</h2>
+            <p>You can continue to apply if you still think you are eligible for New Style JSA.</p>
+            <p><a href="working" class="js-still-apply">Continue to apply</a>
+
+        </div>
+    </div>
+
+{% endblock %}

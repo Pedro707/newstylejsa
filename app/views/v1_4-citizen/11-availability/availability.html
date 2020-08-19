@@ -1,0 +1,139 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Availability for jobcentre interview</span>
+        Tell us the days and times when you cannot attend a jobcentre interview
+      </h1>
+
+      <p>Tick the days and times when you're not free to attend.</p>
+
+      <form action="availability" method="post">
+
+        <div class="govuk-form-group govuk-!-margin-top-6">
+          <fieldset class="govuk-fieldset">
+
+            {{ govukCheckboxes({
+              idPrefix: "fri-7th",
+              name: "fri-7th",
+              fieldset: {
+                legend: {
+                  text: "Friday 7 December",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [{
+                value: "morning",
+                text: "Morning"
+              }, {
+                value: "afternoon",
+                text: "Afternoon"
+              }]
+            }) }}
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            {{ govukCheckboxes({
+              idPrefix: "mon-10th",
+              name: "mon-10th",
+              fieldset: {
+                legend: {
+                  text: "Monday 10 December",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [{
+                value: "morning",
+                text: "Morning"
+              }, {
+                value: "afternoon",
+                text: "Afternoon"
+              }]
+            }) }}
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            {{ govukCheckboxes({
+              idPrefix: "tue-11th",
+              name: "tue-11th",
+              fieldset: {
+                legend: {
+                  text: "Tuesday 11 December",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [{
+                value: "morning",
+                text: "Morning"
+              }, {
+                value: "afternoon",
+                text: "Afternoon"
+              }]
+            }) }}
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            {{ govukCheckboxes({
+              idPrefix: "wed-12th",
+              name: "wed-12th",
+              fieldset: {
+                legend: {
+                  text: "Wednesday 12 December",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [{
+                value: "morning",
+                text: "Morning"
+              }, {
+                value: "afternoon",
+                text: "Afternoon"
+              }]
+            }) }}
+
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            {{ govukCheckboxes({
+              idPrefix: "thu-13th",
+              name: "thu-13th",
+              fieldset: {
+                legend: {
+                  text: "Thursday 13 December",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [{
+                value: "morning",
+                text: "Morning"
+              }, {
+                value: "afternoon",
+                text: "Afternoon"
+              }]
+            }) }}
+
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
