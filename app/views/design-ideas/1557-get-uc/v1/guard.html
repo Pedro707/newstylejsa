@@ -1,0 +1,76 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+{% set ucHtml %}
+<p class="govuk-hint">You will need to contact your UC case manager and tell them you have also applied for New Style JSA.</p>
+{% endset -%}
+
+{% set anotherHtml %}
+  <h3 class="govuk-heading-m">What other benefits are you waiting to hear about?</h3>
+  {{ govukCharacterCount({
+    name: "more-detail",
+    id: "more-detail",
+    maxlength: 100,
+    hint: {
+      html: "For example, Carers allowance"
+    }
+  }) }}
+{% endset -%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <form action="guard" method="post">
+
+        {{ govukCheckboxes({
+          idPrefix: "ob-are-you",
+          name: "obAreYou",
+          classes: "govuk-radios--inline",
+          fieldset: {
+            legend: {
+              html: "
+                <span class=govuk-caption-xl>Other benefits</span>
+                Have you recently applied for any other benefits?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+        },
+          items: [{
+            value: "ob-no",
+            text: "No, I haven't recently applied for any other benefits"
+          }, {
+            value: "ob-yes-uc",
+            text: "Yes, I have applied for Universal Credit (UC)",
+            conditional: {
+                html: ucHtml
+            }
+          }, {
+            value: "ob-yes-esa",
+            text: "Yes, I have applied for Employment and Support Allowance (ESA)"
+          }, {
+            value: "ob-yes-another",
+            text: "Yes, I have applied for another benefit",
+            conditional: {
+                html: anotherHtml
+            }
+          }]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

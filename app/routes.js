@@ -12,6 +12,17 @@ router.get("/", function (req, res) {
 
 // Add your routes here - above the module.exports line
 
+// This moves ticket 1557 routing to 1557 directory
+router.use(
+  "/design-ideas/1557-get-uc/v1/",
+  require("./views/design-ideas/1557-get-uc/v1/_routes")
+);
+router.use(
+  "/design-ideas/1557-get-uc/v2/",
+  require("./views/design-ideas/1557-get-uc/v2/_routes")
+);
+
+
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
 //  ROUTING FOR VERSION 1.4                                                  //
