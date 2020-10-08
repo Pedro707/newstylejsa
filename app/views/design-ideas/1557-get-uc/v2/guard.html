@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+{% set ucYesHtml %}
+<p class="govuk-hint">You will need to sign into your Universal Credit account and tell your case manager that you have also applied for New Style JSA.</p>
+{% endset -%}
+
+{% set ucNoHtml %}
+<p class="govuk-hint">If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
+{% endset -%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ob-uc",
+          name: "obUc",
+          fieldset: {
+            legend: {
+              html: "
+                <span class=govuk-caption-xl>Other benefits</span>
+                Have you applied for Universal Credit?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            value: "ob-uc-yes",
+            text: "Yes",
+            conditional: {
+                html: ucYesHtml
+            }
+          }, {
+            value: "ob-uc-no",
+            text: "No",
+            conditional: {
+                html: ucNoHtml
+            }
+          }]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
