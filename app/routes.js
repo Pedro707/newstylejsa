@@ -21,6 +21,10 @@ router.use(
   "/design-ideas/1557-get-uc/v2/",
   require("./views/design-ideas/1557-get-uc/v2/_routes")
 );
+router.use(
+  "/design-ideas/1557-get-uc/v3/",
+  require("./views/design-ideas/1557-get-uc/v3/_routes")
+);
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //

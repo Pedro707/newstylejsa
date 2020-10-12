@@ -1,0 +1,64 @@
+
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-panel__title--centred">Application complete</h1>
+      </div>
+
+    <p>We will send you confirmation of your application if you have provided a mobile number or email address.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>Wait for us to contact you to discuss your next steps towards finding work.</p>
+      <p>If you are able to look for work safely while following government guidance on coronavirus (COVID-19) you should: </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>update your CV</li>
+        <li>consider your opportunities for returning to work</li>
+        <li>search for jobs, for example on the government's <a href="https://jobhelp.campaign.gov.uk/">Job Help website</a></li>
+        <li>make yourself available for work</li>
+      </ul>
+     
+
+
+      {% if data['obUc'] == 'ob-uc-yes' %}
+      
+      {{ govukInsetText({
+        html: "
+        <h2 class=govuk-heading-m>Contacting us</h2>
+         <p>You need to contact us to report a change of circumstances, such as starting a new job.</p>
+        <p>If you get or have applied for Universal Credit, you will need to tell your case manager you've applied for New Style JSA.
+        You can do this by <a href=#>signing into your Universal Credit journal (opens in a new tab)</a>.</p>
+      "
+      }) }}
+      
+      {% else %}
+      {{ govukDetails({
+        summaryText: "Do you need help with housing costs or support for a partner or child?",
+        html: "
+        <p>If you're on a low income you might be able to apply for Universal Credit as part of a dual claim with New Style JSA.</p>
+        <p>Unlike New Style JSA, you can apply with a partner and get support for housing costs, children and childcare.</p>
+        <p>You or your partner must have less than £16,000 in savings or investments to be eligilbe.</p>
+        <p>Find out <a href=#>how to claim for Universal Credit on GOV.UK (opens in new tab)</a>.</p>
+        "
+      }) }}
+      
+      {% endif %}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <p><a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)</p>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
