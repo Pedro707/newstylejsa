@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+const BASE_PATH = 'v1_5-citizen/1-eligibility';
+const ABS_BASE_PATH = `/${BASE_PATH}`;
+const NEXT_PATH = 'v1_5-citizen/2-claim-start';
+
 /*
  * BRANCHING FOR ELIGIBILITY
  *
@@ -27,43 +31,54 @@ var router = express.Router();
  * Please note: the content of page number 3 should be copied to the other two
  * */
 
-// after residence we do working
-router.get('/working', function (req, res) {
-  var residence = req.query.eligibilityResidence;
-  if (residence === 'eligibility-residence-no') {
-    res.redirect('/v1_4-citizen/1-eligibility/ineligible-residency');
+router.post('/residence', function (req, res) {
+  var answer = req.session.data['eligibilityResidence'];
+  console.log(answer)
+  if (answer === 'eligibility-residence-no') {
+    res.redirect(`${ABS_BASE_PATH}/ineligible-residency`);
   } else {
-    res.render('v1_4-citizen/1-eligibility/working');
+    res.redirect(`${ABS_BASE_PATH}/working`);
+  }
+});
+
+// after residence we do working
+router.post('/working', function (req, res) {
+  var answer = req.session.data['eligibilityWorking'];
+  console.log(answer, req.query.eligibilityResidence)
+  if (answer === 'eligibility-working-no') {
+    res.redirect(`${ABS_BASE_PATH}/contributions`);
+  } else {
+    res.redirect(`${ABS_BASE_PATH}/working-over`);
   }
 });
 
 // after working we do working over
-router.get('/working-over', function (req, res) {
-  var working = req.query.eligibilityWorking;
-  if (working === 'eligibility-working-no') {
-    res.redirect('/v1_4-citizen/1-eligibility/contributions');
+router.post('/working-over', function (req, res) {
+  var answer = req.session.data['eligibilityWorkingOver'];
+  if (answer === 'eligibility-working-over-no') {
+    res.redirect(`${ABS_BASE_PATH}/contributions`);
   } else {
-    res.render('v1_4-citizen/1-eligibility/working-over');
+    res.redirect(`${ABS_BASE_PATH}/ineligible-more-than-16-hours`);
   }
 });
 
 // after working over we do contributions
-router.get('/contributions', function (req, res) {
-  var workingOver = req.query.eligibilityWorkingOver;
-  if (workingOver === 'eligibility-working-over-yes') {
-    res.redirect('/v1_4-citizen/1-eligibility/ineligible-more-than-16-hours');
+router.post('/contributions', function (req, res) {
+  var answer = req.session.data['eligibilityWorkingOver'];
+  if (answer === 'eligibility-working-over-yes') {
+    res.redirect(`${ABS_BASE_PATH}/ineligible-more-than-16-hours`);
   } else {
-    res.render('v1_4-citizen/1-eligibility/contributions');
+    res.redirect(`${ABS_BASE_PATH}/contributions`);
   }
 });
 
 // after contributions we do eligible
 router.get('/eligible', function (req, res) {
-  var contributions = req.query.eligibilityContributions;
-  if (contributions === 'eligibility-contributions-no') {
-    res.redirect('/v1_4-citizen/1-eligibility/ineligible');
+  var answer = req.session.data['eligibilityContributions'];
+  if (answer === 'eligibility-contributions-no') {
+    res.redirect(`${ABS_BASE_PATH}/ineligible`);
   } else {
-    res.render('v1_4-citizen/1-eligibility/eligible');
+    res.redirect(`${ABS_BASE_PATH}/eligible`);
   }
 });
 
