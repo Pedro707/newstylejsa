@@ -10,12 +10,9 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
-            <h1 class="govuk-heading-l">Based on your answers, you may not be eligible for New Style Jobseeker's Allowance (JSA)</h1>
+            <h1 class="govuk-heading-l">Based on your last answer, you are not eligible for New Style Jobseeker's Allowance (JSA)</h1>
 
-            <section>
-                <p class="govuk-body">This is because you must not be working, or be working less than 16 hours per week on average to get New Style JSA. </p>
-
-            </section>
+            <p>This is because you have told us you are working more than 16 hours per week on average.</p>
 
             <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
             {{ govukButton({
@@ -23,8 +20,7 @@
                 href: "https://www.gov.uk/benefits-calculators"
             }) }}
 
-            <h2 class="govuk-heading-m">Do you still want to apply?</h2>
-            <p>You can continue to apply if you still think you are eligible for New Style JSA.</p>
+            {% include "v1_5-citizen/1-eligibility/includes/still-apply.html" %}
             <p><a href="contributions" class="js-still-apply">Continue to apply</a>
 
         </div>

@@ -14,15 +14,17 @@
         Have you been employed and paid National Insurance over the last 2 to 3 years?
       </h1>
 
-      <span id="eligibility-contributions-hint" class="govuk-hint">
-        You may be eligible if you have paid enough National Insurance contributions, usually over the last 2 to 3 years. National Insurance credits can also count.
-      </span>
+      <p>You may be eligible if you have paid enough National Insurance contributions, 
+      usually over the last 2 to 3 years. National Insurance credits can also count.</p>
 
-      <form action="eligible" method="get">
+      <p>If you're not sure, you can still apply for New Style JSA.</p>
+
+
+      <form action="contributions" method="post">
 
         <div class="govuk-form-group">
 
-            <fieldset class="govuk-fieldset" aria-describedby="eligibility-contributions-hint">
+            <fieldset class="govuk-fieldset">
 
                 {{ govukRadios({
                     idPrefix: 'contributions',
@@ -38,18 +40,25 @@
                         },
                         {
                             value: "eligibility-contributions-not-sure",
-                            text: "I'm not sure"
+                            text: "I'm not sure",
+                            conditional: {
+                              html: "<p>You can <a href='https://www.gov.uk/check-national-insurance-record'>check your National Insurance record online</a>.</p>"
+                            }
                         }
                     ]
                 })
                 }}
+
             </fieldset>
+            
 
         </div>
 
         {{ govukButton({
             text: "Continue"
         }) }}
+
+        <p>We'll check your application to make sure you are eligible for this benefit.</p>
 
       </form>
     </div>

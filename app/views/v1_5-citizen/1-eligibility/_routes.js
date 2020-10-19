@@ -64,18 +64,10 @@ router.post('/working-over', function (req, res) {
 
 // after working over we do contributions
 router.post('/contributions', function (req, res) {
-  var answer = req.session.data['eligibilityWorkingOver'];
-  if (answer === 'eligibility-working-over-yes') {
-    res.redirect(`${ABS_BASE_PATH}/ineligible-more-than-16-hours`);
-  } else {
-    res.redirect(`${ABS_BASE_PATH}/contributions`);
-  }
-});
-
-// after contributions we do eligible
-router.get('/eligible', function (req, res) {
   var answer = req.session.data['eligibilityContributions'];
-  if (answer === 'eligibility-contributions-no') {
+  if (answer === 'eligibility-contributions-yes') {
+    res.redirect(`${ABS_BASE_PATH}/eligible`);
+  } else if (answer === 'eligibility-contributions-no') {
     res.redirect(`${ABS_BASE_PATH}/ineligible`);
   } else {
     res.redirect(`${ABS_BASE_PATH}/eligible`);
