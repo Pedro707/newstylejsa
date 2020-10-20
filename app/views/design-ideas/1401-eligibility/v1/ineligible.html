@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">Based on your answers, you may not be eligible for New Style Jobseeker's Allowance (JSA)</h1>
+
+            <p>This is because you might not have made enough Class 1 National Insurance contributions over the last 2 to 3 years 
+                to get New Style JSA. You get these by being employed or by claiming certain benefits.</p>
+
+            <form action="ineligible" method="post">
+
+                    <div class="govuk-form-group">
+
+                        <fieldset class="govuk-fieldset">
+
+                            <h2 class="govuk-heading-m">What do you want to do next?</h2>
+
+                            {{ govukRadios({
+                                idPrefix: 'eligibility-do-next',
+                                name: 'eligibilityDoNext',
+                                items: [
+                                    {
+                                        value: "do-next-other",
+                                        text: "Find other benefits"
+                                    },
+                                    {
+                                        value: "do-next-apply",
+                                        text: "Apply for New Style Jobseeker's Allowance"
+                                    }
+                                ]
+                            })
+                            }}
+                        </fieldset>
+
+                    </div>
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                </form>
+
+
+        </div>
+    </div>
+
+{% endblock %}

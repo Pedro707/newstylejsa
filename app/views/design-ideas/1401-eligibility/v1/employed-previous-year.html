@@ -1,0 +1,52 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">In the year before that - April 2018 to March 2019 - were you employed for most of the time?</h1>
+
+      <form action="employed-previous-year" method="post">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'employed-previous',
+                    name: 'eligibilityEmployedPrevious',
+                    items: [
+                        {
+                            value: "eligibility-employed-previous-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-employed-previous-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-employed-previous-not-sure",
+                            text: "I'm not sure"
+                        }
+                    ]
+                })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -12,6 +12,12 @@ router.get("/", function (req, res) {
 
 // Add your routes here - above the module.exports line
 
+// This moves ticket 1401 routing to 1401 directory
+router.use(
+  "/design-ideas/1401-eligibility/v1/",
+  require("./views/design-ideas/1401-eligibility/v1/_routes")
+);
+
 // This moves ticket 1557 routing to 1557 directory
 router.use(
   "/design-ideas/1557-get-uc/v1/",
