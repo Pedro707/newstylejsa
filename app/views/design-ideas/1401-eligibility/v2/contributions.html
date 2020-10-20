@@ -1,0 +1,72 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Did you make National Insurance contributions between April 2018 and March 2019, and April 2019 and March 2020?
+      </h1>
+
+      {{ govukDetails({
+        summaryText: "How to know if you've made enough National Insurance contributions",
+        html: '
+          <p>You need enough Class 1 National Insurance contributions in the last 2 tax years to get a payment from New Style JSA.</p>
+          <p>You will have got them either through paid employment, getting a benefit that pays them for you, or a combination.</p>
+          <p>If it was through paid employment, you must have earned and paid tax on at least £116 a week (or £503 a month) for 26 
+          weeks and £5,800 in total in 2018–19. And at least £118 a week (or £512 a month) for 26 weeks and £5,900 in total in 2019–20.</p>
+          <p>If it was through benefits, you must have claimed New Style Jobseekers Allowance (JSA), New Style Employment and Support Allowance (ESA),
+          Carers Allowance or Maternity Allowance for 50 weeks in each year.</p>
+          '
+      }) }}
+
+{# 
+          <p>You must have earned and paid tax on either £3,016 for 6 April 2018 to 5 April 2019 or £3,068 for 6 April 2019 to 5 April 2020.</p>
+          <p>You also must have been paid or been credited with £6,136 for 6 April 2018 to 5 April 2019 and £6,136 for 6 April 2019 to 5 April 2020.</p>
+          <p>If you got credits through benefits, you must have claimed New Style Jobseekers Allowance (JSA), New Style Employment and Support Allowance (ESA),
+          Carers Allowance or Maternity Allowance for 50 weeks in each year.</p> #}
+
+      <form action="eligible" method="get">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset" aria-describedby="eligibility-contributions-hint">
+
+                {{ govukRadios({
+                    idPrefix: 'contributions',
+                    name: 'eligibilityContributions',
+                    items: [
+                        {
+                            value: "eligibility-contributions-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-contributions-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-contributions-not-sure",
+                            text: "I'm not sure"
+                        }
+                    ]
+                })
+                }}
+            </fieldset>
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

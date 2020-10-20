@@ -12,26 +12,26 @@
 
       <h1 class="govuk-heading-l">Were you employed for most of the time between April 2019 to March 2020?</h1>
 
-      <form action="eligible" method="get">
+      <form action="employed-previous-year" method="get">
 
         <div class="govuk-form-group">
 
             <fieldset class="govuk-fieldset">
 
                 {{ govukRadios({
-                    idPrefix: 'contributions',
-                    name: 'eligibilityContributions',
+                    idPrefix: 'employed',
+                    name: 'eligibilityEmployed',
                     items: [
                         {
-                            value: "eligibility-contributions-yes",
+                            value: "eligibility-employed-yes",
                             text: "Yes"
                         },
                         {
-                            value: "eligibility-contributions-no",
+                            value: "eligibility-employed-no",
                             text: "No"
                         },
                         {
-                            value: "eligibility-contributions-not-sure",
+                            value: "eligibility-employed-not-sure",
                             text: "I'm not sure"
                         }
                     ]

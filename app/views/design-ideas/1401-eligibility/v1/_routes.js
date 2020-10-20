@@ -4,7 +4,6 @@ var router = express.Router();
 
 const BASE_PATH = 'design-ideas/1401-eligibility/v1';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
-// const NEXT_PATH = '/v1_4-citizen/5-jury-service';
 
 // Redirect to first question in sequence
 router.get('/', function (req, res) {
@@ -78,14 +77,24 @@ router.get('/eligible', function (req, res) {
   }
 });
 
+// router.post('/employed', function (req, res) {
+//   var answer = req.session.data['eligibilityEmployed'];
+//   if (answer === 'eligibility-employed-yes') {
+//     res.redirect('/design-ideas/1401-eligibility/v1/eligible');
+//   } else if (answer === 'eligibility-benefits-yes-some') {
+//     res.redirect('/design-ideas/1401-eligibility/v1/ineligible');
+//   } else {
+//     res.render('design-ideas/1401-eligibility/v1/ineligible');
+//   }
+// });
+
 router.post('/employed-previous-year', function (req, res) {
+  var answerEmployed = req.session.data['eligibilityEmployed'];
   var answer = req.session.data['eligibilityEmployedPrevious'];
-  if (answer === 'eligibility-employed-previous-yes') {
+  if (answer === 'eligibility-employed-previous-yes' && answerEmployed === 'eligibility-employed-yes') {
     res.redirect('/design-ideas/1401-eligibility/v1/eligible');
-  } else if (answer === 'eligibility-employed-previous-no') {
-    res.redirect('/design-ideas/1401-eligibility/v1/benefits');
   } else {
-    res.render('design-ideas/1401-eligibility/v1/eligible');
+    res.render('design-ideas/1401-eligibility/v1/benefits');
   }
 });
 
