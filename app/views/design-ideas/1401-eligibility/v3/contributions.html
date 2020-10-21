@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Have you paid National Insurance over the last 2 to 3 years?</h1>
+      
+      <p>You need enough Class 1 National Insurance contributions in the last 2 to 3 years to get a payment from New Style JSA.</p>
+      <p>You will have got them either through paid employment, getting a benefit that pays them for you, or a combination. National Insurance credits can also count.</p>
+      <p>We'll check your application to make sure you're eligible for this benefit.</p>
+
+      <form action="eligible" method="get">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'contributions',
+                    name: 'eligibilityContributions',
+                    items: [
+                        {
+                            value: "eligibility-contributions-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-contributions-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-contributions-not-sure",
+                            text: "I'm not sure",
+                            conditional: {
+                              html: "<p>You can still apply for New Style JSA.</p>"
+                            }
+                        }
+                    ]
+                })
+                }}
+
+            </fieldset>
+            
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
