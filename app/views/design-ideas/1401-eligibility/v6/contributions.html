@@ -1,0 +1,63 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">To be eligibile, you need to have paid National Insurance since April 2018</h1>
+
+      <p>You pay National Insurance through:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>paid employment</li>
+        <li>a benefit that pays them for you</li>
+        <li>National Insurance credits</li>
+      </ul>
+
+      <form action="eligible" method="get">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'contributions',
+                name: 'eligibilityContributions',
+                fieldset: {
+                  legend: {
+                    text: "Have you paid National Insurance since April 2018?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                    {
+                        value: "eligibility-contributions-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-contributions-no",
+                        text: "No"
+                    },
+                    {
+                        value: "eligibility-contributions-not-sure",
+                        text: "I'm not sure"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
