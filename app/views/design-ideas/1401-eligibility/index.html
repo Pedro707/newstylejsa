@@ -28,14 +28,26 @@
         <ul class="govuk-list">
                 {# <p>The result of this eligibility check does not mean you will get the benefit.</p> #}
 
-
+            <li>
+                <span class="govuk-caption-m">27 October 2020</span>
+                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v6">#6 </a></h2>
+                  {{ govukDetails({
+                    summaryText: "Gareth’s hypothesis",
+                    html: '
+                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
+                    <p>mmmm;</p>
+                    <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
+                    '
+                  }) }}
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            </li>
             <li>
                 <span class="govuk-caption-m">26 October 2020</span>
                 <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v5">#5 Focus on past 2 to 3 years only</a></h2>
                   {{ govukDetails({
                     summaryText: "Rita’s hypothesis",
                     html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get New Style JSA;</p>
+                    <p>We’ve seen people who have worked all their life until recently wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
                     <p>so if we make it clear we only care about the last 2 to 3 years;</p>
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
@@ -48,8 +60,8 @@
                   {{ govukDetails({
                     summaryText: "Gareth’s hypothesis",
                     html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get New Style JSA;</p>
-                    <p>so if we tell them that we will check their eligibility, we make them check before they apply;</p>
+                    <p>We’ve seen people apply to get Jobseeker’s allowance without checking their NI contributions;</p>
+                    <p>so by telling them that we do a check, we’ll prompt users to check and;</p>
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                   }) }}
@@ -59,11 +71,14 @@
                 <span class="govuk-caption-m">21 October 2020</span>
                 <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v3">#3 Removing doubt and self serving</a></h2>
                 {{ govukDetails({
-                    summaryText: "Gareth’s hypothesis",
+                    summaryText: "Gareth’s hypotheses",
                     html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get New Style JSA;</p>
-                    <p>so if we provide clear information when we know they are or aren’t eligible and signposting for users to 
-                    get support to find this out;</p>
+                    <p>We’ve seen people being told they are not eligible to get Jobseeker’s allowance after applying;</p>
+                    <p>so if we provide clear information when we know they are or aren’t eligible;</p>
+                    <p>we’ll see fewer applications rejected.</p>
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
+                    <p>so if we provide clear signposting to help users find this out for themselves;</p>
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                   }) }}
@@ -71,11 +86,15 @@
             </li>
             <li>
                 <span class="govuk-caption-m">9 October 2020</span>
-                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v2">#2 Provide users with information about NI contributions</a></h2>
+                <h2 class="govuk-heading-m">#2 Provide users with information about NI contributions</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><a href="/design-ideas/1401-eligibility/v2?version=2.1">Iteration 2.1</a></h2></li>
+                  <li><a href="/design-ideas/1401-eligibility/v2?version=2">Iteration 2.0</a></li>
+                </ul>
                 {{ govukDetails({
                     summaryText: "Dan’s hypothesis",
                     html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get New Style JSA;</p>
+                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
                     <p>so if we provide clear information about NI contributions and how the user will know if they’ve paid them;</p>
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
@@ -88,7 +107,7 @@
                 {{ govukDetails({
                     summaryText: "Anne’s hypothesis",
                     html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get New Style JSA;</p>
+                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
                     <p>so if we ask specific questions about employment and benefits - rather than about NI contributions - and route the user accordingly;</p>
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
