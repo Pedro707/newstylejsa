@@ -1,0 +1,69 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">To be eligibile, you need to have been either:</h1>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>employed</li>
+        <li>a share fisherman</li>
+        <li>a volunteer development worker</li>
+      </ul>
+
+      <form action="employment" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'contributions',
+                name: 'eligibilityContributions',
+                fieldset: {
+                  legend: {
+                    text: "Which type of employment were you in?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                    {
+                        value: "eligibility-employed-employed",
+                        text: "I was employed"
+                    },
+                    {
+                        value: "eligibility-employed-volunteer",
+                        text: "I was a volunteer development worker"
+                    },
+                    {
+                        value: "eligibility-employed-fisherman",
+                        text: "I was a share fisherman"
+                    },
+                    {
+                        divider: "or"
+                    },
+                    {
+                        value: "eligibility-employed-fisherman",
+                        text: "I was not in employment"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

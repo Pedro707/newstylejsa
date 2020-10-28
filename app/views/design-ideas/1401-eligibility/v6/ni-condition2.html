@@ -10,7 +10,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">We need you to look at these tax years</h1>
+      <h1 class="govuk-heading-l">To be eligibile, you need to have made the following level of National Insurance contributions</h1>
 
       {# <p>You pay National Insurance through:</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -19,9 +19,9 @@
         <li>National Insurance credits</li>
       </ul> #}
 
+      <h2 class="govuk-heading-m">If you were employed</h2>
       {{ govukTable({
         caption: "Minimum earnings in tax year",
-        captionClasses: "govuk-visually-hidden",
         firstCellIsHeader: true,
         head: [
           {
@@ -37,7 +37,7 @@
               text: "2018 to 2019"
             },
             {
-              text: "£3,016"
+              text: "£5,800"
             }
           ],
           [
@@ -45,22 +45,17 @@
               text: "2017 to 2018"
             },
             {
-              text: "£2,938"
+              text: "£5,650"
             }
           ]
         ]
       }) }}
 
-      <p>Tax years start on 6 April and end on 5 April.</p>
+      <h2 class="govuk-heading-s">since April 2017</h2>
+      <p>Have paid Class 1 (or special Class 2) contributions to the value of 26 times the lower earnings limit.</p>
 
-      <h2 class="govuk-heading-m">To be eligibile, you need to have:</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>earned at least the minimum amount</li>
-        <li>earned it over 6 months</li>
-        <li>earned it in either tax year</li>
-      </ul>
-      <p>You can check your payslips.</p>
+      <h2 class="govuk-heading-s">From April 2017 to March 2018 and from April 2018 to March 2019</h2>
+      <p>have paid or been credited with, Class 1 (or special class 2) contributions to the value of 50 times the lower earnings limit.</p>
 
       <form action="eligible" method="get">
 
@@ -71,7 +66,7 @@
                 name: 'eligibilityContributions',
                 fieldset: {
                   legend: {
-                    text: "Did you make at least the minimum earnings in either tax year?",
+                    text: "Have you made enough National Insurance contributions?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--m"
                   }
