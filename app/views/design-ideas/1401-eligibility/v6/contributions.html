@@ -10,88 +10,41 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">We need you to look at these tax years</h1>
+      <h1 class="govuk-heading-l">Have you been employed and paid National Insurance since April 2017?</h1>
 
-      {# <p>You pay National Insurance through:</p>
+      <p>You may be eligible if you have enough:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>paid employment</li>
-        <li>a benefit that pays them for you</li>
+        <li>National Insurance contributions or,</li>
         <li>National Insurance credits</li>
-      </ul> #}
-
-      {{ govukTable({
-        caption: "Minimum earnings in tax year",
-        captionClasses: "govuk-visually-hidden",
-        firstCellIsHeader: true,
-        head: [
-          {
-            text: "Tax year"
-          },
-          {
-            text: "Minimum earnings"
-          }
-        ],
-        rows: [
-          [
-            {
-              text: "2018 to 2019"
-            },
-            {
-              text: "£3,016"
-            }
-          ],
-          [
-            {
-              text: "2017 to 2018"
-            },
-            {
-              text: "£2,938"
-            }
-          ]
-        ]
-      }) }}
-
-      <p>Tax years start on 6 April and end on 5 April.</p>
-
-      <h2 class="govuk-heading-m">To be eligibile, you need to have:</h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>earned at least the minimum amount</li>
-        <li>earned it over 6 months</li>
-        <li>earned it in either tax year</li>
       </ul>
-      <p>You can check your payslips.</p>
+      <p>usually over the last 2 to 3 years.</p>
 
-      <form action="eligible" method="get">
+      <form action="contributions" method="post">
 
         <div class="govuk-form-group">
 
-            {{ govukRadios({
-                idPrefix: 'contributions',
-                name: 'eligibilityContributions',
-                fieldset: {
-                  legend: {
-                    text: "Did you make at least the minimum earnings in either tax year?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                items: [
-                    {
-                        value: "eligibility-contributions-yes",
-                        text: "Yes"
-                    },
-                    {
-                        value: "eligibility-contributions-no",
-                        text: "No"
-                    },
-                    {
-                        value: "eligibility-contributions-not-sure",
-                        text: "I'm not sure"
-                    }
-                ]
-            })
-            }}
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'contributions',
+                    name: 'eligibilityContributions',
+                    items: [
+                        {
+                            value: "eligibility-contributions-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-contributions-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-contributions-not-sure",
+                            text: "I'm not sure"
+                        }
+                    ]
+                })
+                }}
+            </fieldset>
 
         </div>
 

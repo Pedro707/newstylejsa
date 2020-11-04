@@ -64,6 +64,18 @@ router.get('/contributions', function (req, res) {
   }
 });
 
+// after working over we do contributions
+router.post('/contributions', function (req, res) {
+  var answer = req.session.data['eligibilityContributions'];
+  if (answer === 'eligibility-contributions-yes') {
+    res.redirect('/design-ideas/1401-eligibility/v6/eligible');
+  } else if (answer === 'eligibility-contributions-not-sure') {
+    res.redirect('/design-ideas/1401-eligibility/v6/earnings');
+  } else {
+    res.redirect('/design-ideas/1401-eligibility/v6/ineligible');
+  }
+});
+
 // after contributions we do eligible
 router.get('/eligible', function (req, res) {
   var contributions = req.query.eligibilityContributions;
