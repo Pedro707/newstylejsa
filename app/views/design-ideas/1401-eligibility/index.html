@@ -28,19 +28,67 @@
         <ul class="govuk-list">
                 {# <p>The result of this eligibility check does not mean you will get the benefit.</p> #}
 
-            <li>
-                <span class="govuk-caption-m">27 October 2020</span>
-                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v6">#6 Stop and think</a></h2>
+              {# <li>
+                  <span class="govuk-caption-m">27 October 2020</span>
+                  <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v6">#6 Stop and think</a> – WIP</h2>
+                    {{ govukDetails({
+                      summaryText: "Gareth’s hypothesis",
+                      html: '
+                      <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
+                      <p>so if we make users stop and think about NI;</p>
+                      <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
+                      '
+                    }) }}
+                  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+              </li> #}
+
+
+              {% set OctoberMVPHtml %}
+                <p>From testing V1 to 5, we know that users respond well to definites;</p>
+                {{ govukTable({
+                  caption: "Learnings recommendations",
+                  captionClasses: "govuk-visually-hidden",
+                  firstCellIsHeader: false,
+                  head: [
+                    {
+                      text: "Dont use"
+                    },
+                    {
+                      text: "Use"
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        text: "last 2 to 3 years"
+                      },
+                      {
+                        text: "since April 2017"
+                      }
+                    ],
+                    [
+                      {
+                        text: "you might be eligible"
+                      },
+                      {
+                        text: "you are eligible"
+                      }
+                    ]
+                  ]
+                }) }}
+                <p>We have high confidence in this version.</p>
+              {% endset -%}
+      
+              <li>
+                <span class="govuk-caption-m">2 November 2020</span>
+                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/Oct-mvp">October MVP</a></h2>
                   {{ govukDetails({
-                    summaryText: "Gareth’s hypothesis",
-                    html: '
-                    <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
-                    <p>so if we make users stop and think about NI;</p>
-                    <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
-                    '
+                    summaryText: "October learnings",
+                    html: OctoberMVPHtml
                   }) }}
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </li>
+
             <li>
                 <span class="govuk-caption-m">26 October 2020</span>
                 <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v5">#5 Focus on past 2 to 3 years only</a></h2>
@@ -52,6 +100,11 @@
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                   }) }}
+                  <h3>Outcome</h3>
+                  <ul class="govuk-list govuk-list--bullet"> 
+                    <li>Inconclusive</li>
+                    <li>Need to test with more of the demographic</li>
+                  </ul>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </li>
             <li>
@@ -65,6 +118,11 @@
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                   }) }}
+                  <h3>Outcome</h3>
+                  <ul class="govuk-list govuk-list--bullet"> 
+                    <li>Users tended to miss the "we'll check" line</li>
+                    <li>Uncertain if we want to encourage users who the "we'll check" message gives confidence to apply to</li>
+                  </ul>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </li>
             <li>
@@ -82,6 +140,11 @@
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                   }) }}
+                <h3>Outcome</h3>
+                <ul class="govuk-list govuk-list--bullet"> 
+                  <li>Users like definite outcomes (you are eligible)</li>
+                  <li>Not all users want to use the phone to call HMRC (aspergers user)</li>
+                </ul>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </li>
             <li>
@@ -99,6 +162,12 @@
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                 }) }}
+                <h3>Outcome</h3>
+                <ul class="govuk-list govuk-list--bullet"> 
+                  <li>Users confused by amount of technical language</li>
+                  <li>Not all users interact with details component</li>
+                  <li>Users confused by tax language</li>
+                </ul>
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             </li>
             <li>
@@ -112,7 +181,12 @@
                     <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                     '
                 }) }}
-                
+                <h3>Outcome</h3>
+                <ul class="govuk-list govuk-list--bullet"> 
+                  <li>Users confused about the meaning of employed, some are employed and on zero hours contracts</li>
+                  <li>Users confused by "most and some of the time"</li>
+                  <li>Not all users know what the other benefits are</li>
+                </ul>
             </li>
         </ul>
         
