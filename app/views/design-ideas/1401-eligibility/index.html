@@ -26,22 +26,25 @@
       <h2 class="govuk-heading-l">Versions</h2>
 
         <ul class="govuk-list">
-                {# <p>The result of this eligibility check does not mean you will get the benefit.</p> #}
 
-              {# <li>
-                  <span class="govuk-caption-m">27 October 2020</span>
-                  <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/v6">#6 Stop and think</a> – WIP</h2>
+              <li>
+                  <span class="govuk-caption-m">10 November 2020</span>
+                  <h2 class="govuk-heading-m">#6 Stop and think about NI contributions</h2>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="/design-ideas/1401-eligibility/v6?version=6.2">Iteration 6.2</a> – includes 26 weeks detail</li>
+                    <li><a href="/design-ideas/1401-eligibility/v6?version=6.1">Iteration 6.1</a> – includes NI classes detail</li>
+                    <li><a href="/design-ideas/1401-eligibility/v6?version=6">Iteration 6.0</a></li>
+                  </ul>
                     {{ govukDetails({
                       summaryText: "Gareth’s hypothesis",
                       html: '
-                      <p>We’ve seen people wrongly saying they’ve made enough National Insurance contributions to get Jobseeker’s allowance;</p>
-                      <p>so if we make users stop and think about NI;</p>
+                      <p>We’ve seen people wrongly saying they’ve made <strong>enough</strong> National Insurance contributions to get Jobseeker’s allowance;</p>
+                      <p>so if we make users stop and think about what <strong>enough</strong> means;</p>
                       <p>we’ll see fewer applications rejected on the basis of NI contributions.</p>
                       '
                     }) }}
                   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-              </li> #}
-
+              </li>
 
               {% set OctoberMVPHtml %}
                 <p>From testing V1 to 5, we know that users respond well to definites;</p>
@@ -76,14 +79,14 @@
                     ]
                   ]
                 }) }}
-                <p>We have high confidence in this version.</p>
               {% endset -%}
       
               <li>
                 <span class="govuk-caption-m">2 November 2020</span>
-                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/Oct-mvp">October MVP</a></h2>
+                <h2 class="govuk-heading-m"><a href="/design-ideas/1401-eligibility/Oct-mvp">October learnings</a></h2>
+                <p>A prototype to capture what we know works for users.</p>
                   {{ govukDetails({
-                    summaryText: "October learnings",
+                    summaryText: "What we know",
                     html: OctoberMVPHtml
                   }) }}
                 <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
@@ -151,7 +154,7 @@
                 <span class="govuk-caption-m">9 October 2020</span>
                 <h2 class="govuk-heading-m">#2 Provide users with information about NI contributions</h2>
                 <ul class="govuk-list govuk-list--bullet">
-                  <li><a href="/design-ideas/1401-eligibility/v2?version=2.1">Iteration 2.1</a></h2></li>
+                  <li><a href="/design-ideas/1401-eligibility/v2?version=2.1">Iteration 2.1</a></li>
                   <li><a href="/design-ideas/1401-eligibility/v2?version=2">Iteration 2.0</a></li>
                 </ul>
                 {{ govukDetails({

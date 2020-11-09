@@ -1,0 +1,38 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">How to find out about your National Insurance contributions</h1>
+
+      <p>You need enough Class 1 National Insurance contributions in the last 2 tax years to get a payment from New Style JSA.</p>
+      <p>You will have got them either through paid employment, getting a benefit that pays them for you, or a combination. National Insurance credits can also count.</p>
+
+      <h2 class="govuk-heading-m">Contact HM Revenue &amp; Customs (HMRC)</h2>
+      <p>You can call HMRC for help and information about Class 1 National Insurance.</p>
+
+        {{ govukInsetText({
+            html: "
+                <p>Telephone:<br><strong>0300 200 3500</strong></p>
+                <p>Textphone:<br><strong>0300 200 3519</strong></p>
+                <p>Outside UK:<br><strong>+ 44 191 203 7010</strong></p>
+                <h3 class=govuk-heading-s>Opening times</h3>
+                <p>Phone line opening hours are:</p>
+                <p>Monday to Friday: 8am to 6pm<br>
+                Closed on Saturdays, Sundays and Bank Holidays.</p>
+            "
+        }) }}
+
+        <p>You can <a href="/v1_5-citizen/2-claim-start/start-date">continue applying for New Style Jobseeker's Allowance</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

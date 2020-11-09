@@ -53,40 +53,42 @@
 
       <p>Tax years start on 6 April and end on 5 April.</p>
 
-      <h2 class="govuk-heading-m">To be eligibile, you need to have:</h2>
+      <h2 class="govuk-heading-l">To be eligibile, you need to have met these conditions:</h2>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>earned at least the minimum amount</li>
         <li>earned it over any 26 weeks of the tax year</li>
         <li>earned it in either tax year</li>
       </ul>
-      <p>You can check your payslips.</p>
 
-      <form action="eligible" method="get">
+      <form action="earnings" method="post">
 
         <div class="govuk-form-group">
 
             {{ govukRadios({
-                idPrefix: 'contributions',
-                name: 'eligibilityContributions',
+                idPrefix: 'earnings',
+                name: 'eligibilityEarnings',
                 fieldset: {
                   legend: {
-                    text: "Did you make at least the minimum earnings in either tax year?",
+                    text: "Did you meet these conditions?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
+                hint : {
+                  text: "You can check your payslips."
+                },
                 items: [
                     {
-                        value: "eligibility-contributions-yes",
+                        value: "eligibility-earnings-yes",
                         text: "Yes"
                     },
                     {
-                        value: "eligibility-contributions-no",
+                        value: "eligibility-earnings-no",
                         text: "No"
                     },
                     {
-                        value: "eligibility-contributions-not-sure",
+                        value: "eligibility-earnings-not-sure",
                         text: "I'm not sure"
                     }
                 ]

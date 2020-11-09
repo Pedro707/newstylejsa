@@ -55,14 +55,14 @@ router.get('/working-over', function (req, res) {
 });
 
 // after working over we do contributions
-router.get('/contributions', function (req, res) {
-  var workingOver = req.query.eligibilityWorkingOver;
-  if (workingOver === 'eligibility-working-over-yes') {
-    res.redirect('/design-ideas/1401-eligibility/v6/ineligible-more-than-16-hours');
-  } else {
-    res.render('design-ideas/1401-eligibility/v6/contributions');
-  }
-});
+// router.get('/contributions', function (req, res) {
+//   var workingOver = req.query.eligibilityWorkingOver;
+//   if (workingOver === 'eligibility-working-over-yes') {
+//     res.redirect('/design-ideas/1401-eligibility/v6/ineligible-more-than-16-hours');
+//   } else {
+//     res.render('design-ideas/1401-eligibility/v6/contributions');
+//   }
+// });
 
 // after working over we do contributions
 router.post('/contributions', function (req, res) {
@@ -70,7 +70,7 @@ router.post('/contributions', function (req, res) {
   if (answer === 'eligibility-contributions-yes') {
     res.redirect('/design-ideas/1401-eligibility/v6/eligible');
   } else if (answer === 'eligibility-contributions-not-sure') {
-    res.redirect('/design-ideas/1401-eligibility/v6/earnings');
+    res.redirect('/design-ideas/1401-eligibility/v6/unsure');
   } else {
     res.redirect('/design-ideas/1401-eligibility/v6/ineligible');
   }

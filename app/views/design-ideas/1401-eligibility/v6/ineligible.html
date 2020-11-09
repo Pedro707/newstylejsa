@@ -13,7 +13,7 @@
             <span class="govuk-caption-l">New Style Jobseeker's Allowance (JSA)</span>
             <h1 class="govuk-heading-l">Based on your answers, you are not eligible for this benefit</h1>
 
-            <p>This is because you have told us that you haven't paid any National Insurance contributions over the last 2 to 3 years.</p>
+            <p>This is because you have told us that you haven't paid any National Insurance contributions over the relevant tax years.</p>
             <p>You get these by being employed or by claiming certain benefits.</p>
 
             <form action="ineligible" method="post">
@@ -34,11 +34,7 @@
                                     },
                                     {
                                         value: "do-next-apply",
-                                        text: "Continue applying for New Style Jobseeker's Allowance",
-                                        conditional: {
-                                            html: "<p>You can continue your application if you still think you are eligible for this benefit.
-                                            We'll check to make sure.</p>"
-                                        }
+                                        text: "Continue applying for New Style Jobseeker's Allowance"
                                     }
                                 ]
                             })

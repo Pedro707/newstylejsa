@@ -10,41 +10,112 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Have you been employed and paid National Insurance since April 2017?</h1>
+      <h1 class="govuk-heading-l">We need you to look at these amounts</h1>
 
-      <p>You may be eligible if you have enough:</p>
+      {# <p>You pay National Insurance through:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>National Insurance contributions or,</li>
+        <li>paid employment</li>
+        <li>a benefit that pays them for you</li>
         <li>National Insurance credits</li>
+      </ul> #}
+
+      {{ govukTable({
+        caption: "Minimum earnings in tax year",
+        captionClasses: "govuk-visually-hidden",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Tax year"
+          },
+          {
+            text: "Minimum earnings"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "2018 to 2019"
+            },
+            {
+              text: "£5,900"
+            }
+          ],
+          [
+            {
+              text: "2017 to 2018"
+            },
+            {
+              text: "£5,800"
+            }
+          ]
+        ]
+      }) }}
+
+      <p>Tax years start on 6 April and end on 5 April.</p>
+
+      <h2 class="govuk-heading-l">To be eligibile, you need to have paid enough National Insurance contributions</h2>
+
+      <h3 class="govuk-heading-m">Enough means:</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        {% if data['version'] == '6.1' %}
+        <li>paid or been credited with Class 1 or special Class 2</li>
+        {% endif %}
+        <li>paid it on at least the minimum earnings</li>
+        <li>paid it in both tax years</li>
+        {% if data['version'] == '6.2' %}
+        <li>paid it over any 26 weeks of the tax year</li>
+        {% endif %}
       </ul>
-      <p>usually over the last 2 to 3 years.</p>
+
+      {% if data['version'] == '6.1' %}
+      {{ govukDetails({
+        summaryText: "Find out more about National Insurance classes",
+        html: '
+          <p>You will have got Class 1 National Insurance contributions through:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>paid employment</li>
+            <li>getting a benefit that pays them for you</li>
+          </ul>
+          <p>You will have got special Class 2 National Insurance contributions if you are:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a share fisherman</li>
+            <li>a volunteer development worker</li>
+          </ul>
+          '
+      }) }}
+      {% endif %}
 
       <form action="contributions" method="post">
 
         <div class="govuk-form-group">
 
-            <fieldset class="govuk-fieldset">
-
-                {{ govukRadios({
-                    idPrefix: 'contributions',
-                    name: 'eligibilityContributions',
-                    items: [
-                        {
-                            value: "eligibility-contributions-yes",
-                            text: "Yes"
-                        },
-                        {
-                            value: "eligibility-contributions-no",
-                            text: "No"
-                        },
-                        {
-                            value: "eligibility-contributions-not-sure",
-                            text: "I'm not sure"
-                        }
-                    ]
-                })
-                }}
-            </fieldset>
+            {{ govukRadios({
+                idPrefix: 'contributions',
+                name: 'eligibilityContributions',
+                fieldset: {
+                  legend: {
+                    text: "Have you paid enough National Insurance contributions?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                    {
+                        value: "eligibility-contributions-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-contributions-no",
+                        text: "No"
+                    },
+                    {
+                        value: "eligibility-contributions-not-sure",
+                        text: "I'm not sure"
+                    }
+                ]
+            })
+            }}
 
         </div>
 
