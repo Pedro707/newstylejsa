@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="b2" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'b2',
+                name: 'eligibilityB2',
+                fieldset: {
+                  legend: {
+                    text: "Were you on these benefits for at least 50 weeks between April 2018 and March 2019?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  html: '
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>Carer’s Allowance</li>
+                      <li>Maternity Allowance</li>
+                      <li>New Style Jobseeker’s Allowance (JSA)</li>
+                      <li>New Style Employment and Support Allowance (ESA)</li>
+                    </ul>
+                  '
+                },
+                items: [
+                    {
+                        value: "eligibility-b2-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-b2-no",
+                        text: "No"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

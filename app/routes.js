@@ -41,7 +41,10 @@ router.use(
   "/design-ideas/1401-eligibility/v6/",
   require("./views/design-ideas/1401-eligibility/v6/_routes")
 );
-
+router.use(
+  "/design-ideas/1401-eligibility/v7/",
+  require("./views/design-ideas/1401-eligibility/v7/_routes")
+);
 
 
 // This moves ticket 1557 routing to 1557 directory

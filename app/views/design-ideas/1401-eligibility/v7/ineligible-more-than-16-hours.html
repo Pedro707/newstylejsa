@@ -1,0 +1,54 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">New Style Jobseeker's Allowance (JSA)</span>
+            <h1 class="govuk-heading-l">Based on your answers, you are not eligible for this benefit</h1>
+
+            <p>This is because you must not be working, or be working less than 16 hours per week on average to get New Style JSA. </p>
+            
+            <form action="ineligible-more-than-16-hours" method="post">
+
+                    <div class="govuk-form-group">
+
+                        <fieldset class="govuk-fieldset">
+
+                            <h2 class="govuk-heading-m">What do you want to do next?</h2>
+
+                            {{ govukRadios({
+                                idPrefix: 'eligibility-do-next',
+                                name: 'eligibilityDoNext',
+                                items: [
+                                    {
+                                        value: "do-next-other",
+                                        text: "Find other benefits"
+                                    },
+                                    {
+                                        value: "do-next-apply",
+                                        text: "Continue applying for New Style Jobseeker's Allowance"
+                                    }
+                                ]
+                            })
+                            }}
+                        </fieldset>
+
+                    </div>
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                </form>
+
+        </div>
+    </div>
+
+{% endblock %}

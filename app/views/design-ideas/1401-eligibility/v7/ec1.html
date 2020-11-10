@@ -1,0 +1,61 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="ec1" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'ec1',
+                name: 'eligibilityEc1',
+                fieldset: {
+                  legend: {
+                    text: "In the past 12 weeks, have you:",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  html: '
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>received Employment and Support Allowance?</li>
+                      <li>been entitled to Maternity Allowance?</li>
+                      <li>been entitled to Carer’s Allowance?</li>
+                      <li>left a training course for which a training allowance was paid?</li>
+                      <li>ended a previous claim for New Style Jobseeker’s Allowance?</li>
+                    </ul>
+                  '
+                },
+                items: [
+                    {
+                        value: "eligibility-ec1-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-ec1-no",
+                        text: "No"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

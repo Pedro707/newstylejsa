@@ -1,0 +1,53 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="fcc1" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'fcc1',
+                name: 'eligibilityFcc1',
+                fieldset: {
+                  legend: {
+                    text: "Between April 2018 and March 2019, did you work for a total of at least 26 weeks?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: 'They do not need to be consecutive weeks. Self-employment does not count.'
+                },
+                items: [
+                    {
+                        value: "eligibility-fcc1-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-fcc1-no",
+                        text: "No"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

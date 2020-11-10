@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="ec2" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'ec2',
+                name: 'eligibilityEc2',
+                fieldset: {
+                  legend: {
+                    text: "Are you:",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  html: '
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>a spouse or civil partner of a member of the armed forces?</li>
+                      <li>a volunteer development worker?</li>
+                      <li>a share fisherman?</li>
+                    </ul>
+                  '
+                },
+                items: [
+                    {
+                        value: "eligibility-ec2-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-ec2-no",
+                        text: "No"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

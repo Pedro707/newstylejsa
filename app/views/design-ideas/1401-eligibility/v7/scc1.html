@@ -1,0 +1,53 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="scc1" method="post">
+
+        <div class="govuk-form-group">
+
+            {{ govukRadios({
+                idPrefix: 'scc1',
+                name: 'eligibilityScc1',
+                fieldset: {
+                  legend: {
+                    text: "Did your employer pay you a total of £5,800 between April 2018 and March 2019?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: 'Self-employment does not count.'
+                },
+                items: [
+                    {
+                        value: "eligibility-scc1-yes",
+                        text: "Yes"
+                    },
+                    {
+                        value: "eligibility-scc1-no",
+                        text: "No"
+                    }
+                ]
+            })
+            }}
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
