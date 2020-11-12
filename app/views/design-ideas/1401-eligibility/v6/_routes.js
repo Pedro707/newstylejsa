@@ -45,24 +45,14 @@ router.get('/working', function (req, res) {
 });
 
 // after working we do working over
-router.get('/working-over', function (req, res) {
-  var working = req.query.eligibilityWorking;
-  if (working === 'eligibility-working-no') {
-    res.redirect('/design-ideas/1401-eligibility/v6/contributions');
+router.post('/working-over', function (req, res) {
+  var answer = req.session.data['eligibilityWorkingOver'];
+  if (answer === 'eligibility-working-over-yes') {
+    res.redirect('/design-ideas/1401-eligibility/v6/ineligible-more-than-16-hours');
   } else {
-    res.render('design-ideas/1401-eligibility/v6/working-over');
+    res.redirect('/design-ideas/1401-eligibility/v6/contributions');
   }
 });
-
-// after working over we do contributions
-// router.get('/contributions', function (req, res) {
-//   var workingOver = req.query.eligibilityWorkingOver;
-//   if (workingOver === 'eligibility-working-over-yes') {
-//     res.redirect('/design-ideas/1401-eligibility/v6/ineligible-more-than-16-hours');
-//   } else {
-//     res.render('design-ideas/1401-eligibility/v6/contributions');
-//   }
-// });
 
 // after working over we do contributions
 router.post('/contributions', function (req, res) {
