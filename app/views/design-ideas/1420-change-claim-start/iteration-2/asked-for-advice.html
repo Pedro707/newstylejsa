@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you asked for advice about applying for New Style Jobseeker’s Allowance since 9 November 2020?
+      </h1>
+      <form action="searching-for-work" method="post">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set moreDetailHtml %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "more-detail",
+  id: "more-detail",
+  label: {
+    text: "Can you provide more detail?",
+    classes: "govuk-label--m",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Tell us who you contacted, when you contacted them and what information you were given."
+  }
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  idPrefix: "dates",
+  name: "dates",
+  fieldset: {
+  },
+  hint: {
+    text: "This could be spoken or written advice from a government department, a legal or professional adviser or from an advice agency, such as Citizens Advice."
+  },
+  items: [
+    {
+      value: "dates",
+      text: "Yes",
+      conditional: {
+        html: moreDetailHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "check-answers"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

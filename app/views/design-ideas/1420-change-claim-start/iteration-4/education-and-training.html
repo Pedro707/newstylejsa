@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Education and training</span>
+        Have you been in education or training in the 4 years before the date you want to claim from?
+      </h1>
+
+      {{ govukInsetText({
+        text: "This text may need updating. I (NH) need to find out the information around this. The dates you originally entered for education and training were beyond the 4 years allowed."
+      }) }}
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "edu-have-you",
+          name: "eduHaveYou",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "yes~/design-ideas/1420-change-claim-start/iteration-4/education-and-training-flow",
+            text: "Yes"
+          }, {
+            value: "no~/design-ideas/1420-change-claim-start/iteration-4/check-answers",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

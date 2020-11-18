@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form>
+
+        <h1 class="govuk-heading-l">
+            <span class="govuk-caption-xl">Application start date</span>
+            Are you sure you want to change the claim start date?
+         </h1>
+
+        {{ govukWarningText({
+          text: "You may be asked to give evidence that you have been looking for work from this date.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <div class="inline-form-group">
+          {{ govukButton({
+            text: "No, cancel",
+            classes: "inline-item govuk-!-margin-right-2",
+            href: "check-answers"
+          }) }}
+
+          {{ govukButton({
+            text: "Yes, change",
+            classes: "govuk-button--secondary",
+            href: "change-date"
+          }) }}
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

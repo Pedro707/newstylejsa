@@ -1,0 +1,119 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+DWP - Apply for New Style Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+{{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l"><a href="https://jira.service.dwpcloud.uk/browse/BWADH-1420">Jira reference:
+          1420</a></span>
+      Change claim start date
+    </h1>
+    <p>An effort to allow people to change their claim start date at the end of their application without losing all of the information from their application.
+    
+    <p>What we don't know is why when a customer changes the claim date the data is not persisted on some parts of the application.
+
+    <p>Worked on by: Neil Holroyd, Gareth Joyce, Mark Bateman</p>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-l">Versions</h2>
+
+    <ul class="govuk-list">
+
+      <li>
+        <span class="govuk-caption-m">18 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-4">#5 Putting the customer in control</a></h2>
+        {{ govukDetails({
+                      summaryText: "Neil's hypothesis",
+                      html: '
+                      <p>if customers change the date and the cache is cleared;</p>
+                      <p>we can bring them back to the summary page and let them see what they need to do;</p>
+                      <p>we’ll see that customers feel in control of the process.</p>
+                      '
+                    }) }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </li>
+
+      <li>
+        <span class="govuk-caption-m">18 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-4">#4 Ask questions asking the customer to determine the relevant date</a></h2>
+        {{ govukDetails({
+                      summaryText: "Neil's hypothesis",
+                      html: '
+                      <p>if we have to ask questions again without using a dynamic date;</p>
+                      <p>so we can reframe the question set;</p>
+                      <p>we’ll see that customers can reach an accurate date using the question provided.</p>
+                      '
+                    }) }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </li>
+
+      <li>
+        <span class="govuk-caption-m">18 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-3">#3 Ask questions using a dynamic date</a>
+        </h2>
+        {{ govukDetails({
+                    summaryText: "Neil’s hypothesis",
+                    html: '
+                    <p>If we have a set of date sensitive questions we need to ask again – and the cache is cleared – we can help them;</p>
+                    <p>so by reframing the questions around a dynamic date;</p>
+                    <p>we’ll enable customers to work out the dates we need to know about.</p>
+                    '
+                  }) }}
+        <h3>Outcome</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>No outcomes at the moment</li>
+        </ul>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </li>
+      <li>
+        <span class="govuk-caption-m">18 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-2">#2 Ask the same questions as we would if you changed the date at the beginning</a></h2>
+        {{ govukDetails({
+                    summaryText: "Neil’s hypothesis",
+                    html: '
+                    <p>We know that the date sensitive question part of the application is the same, regardless of customers changing the claim date at the beginning of the journey;</p>
+                    <p>so by just asking them the extra questions that we would have done initially;</p>
+                    <p>we will have the same information.</p>
+                    '
+                  }) }}
+        <h3>Outcome</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>No outcomes at the moment</li>
+        </ul>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </li>
+      <li>
+        <span class="govuk-caption-m">18 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-1">#1 Focus on minimum changes only</a>
+        </h2>
+        {{ govukDetails({
+                    summaryText: "Neil’s hypothesis",
+                    html: '
+                    <p>We know that not giving users the ability to back date their claim on the check answers page creates a bad customer experience; currently if you back date the claim at the beginning, the question set remains the same after the intital backdating questions, regardless of a different date;</p>
+                    <p>so if we simply allow them to change the start date (adding in the new legally required questions jira-1613);</p>
+                    <p>we can go directly back to the check answers page.</p>
+                    '
+                  }) }}
+        <h3>Outcome</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>No outcomes at the moment</li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+{% endblock %}

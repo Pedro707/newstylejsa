@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Have you travelled outside of England, Wales or Scotland since 9 November 2020?
+      </h1>
+      <form action="searching-for-work" method="post">
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set havetravelledHtml %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "travel_start",
+  namePrefix: "travel_start",
+  fieldset: {
+    legend: {
+      text: "Enter the date you left",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 1 10 1980"
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      autocomplete: "travel-start-day"
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+      autocomplete: "travel-start-month"
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+      autocomplete: "travel-start-year"
+    }
+  ]
+}) }}
+
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "illness_end",
+  namePrefix: "illness_end",
+  fieldset: {
+    legend: {
+      text: "Enter the date you returned",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 1 10 1980"
+  },
+  items: [
+    {
+      name: "day",
+      classes: "govuk-input--width-2",
+      autocomplete: "travel-end-day"
+    },
+    {
+      name: "month",
+      classes: "govuk-input--width-2",
+      autocomplete: "travel-end-month"
+    },
+    {
+      name: "year",
+      classes: "govuk-input--width-4",
+      autocomplete: "travel-end-year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{{ govukRadios({
+  idPrefix: "dates",
+  name: "dates",
+  fieldset: {
+  },
+  hint: {
+    text: "Select yes if you have travelled outside of Great Britain (England, Wales or Scotland) for any reason."
+  },
+  items: [
+    {
+      value: "dates",
+      text: "Yes",
+      conditional: {
+        html: havetravelledHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "education-and-training"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
