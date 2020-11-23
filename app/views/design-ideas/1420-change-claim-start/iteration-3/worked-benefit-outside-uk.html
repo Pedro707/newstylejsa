@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Work or benefits abroad</span>
+        Have you worked or claimed benefit outside of the United Kingdom in the 4 years before the 9 November 2020?
+      </h1>
+
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+            idPrefix: 'abroad',
+            name: 'workBenefitAbroad',
+            classes: "govuk-radios--inline",
+            items: [
+                {
+                    value: "yes~/design-ideas/1420-change-claim-start/iteration-3/future-pensions",
+                    text: "Yes"
+                },
+                {
+                    value: "no~/design-ideas/1420-change-claim-start/iteration-3/future-pensions",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

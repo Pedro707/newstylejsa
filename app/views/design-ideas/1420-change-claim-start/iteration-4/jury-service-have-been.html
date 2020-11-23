@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Jury service</span>
+        Have you been on jury service in the 12 weeks before the date you want to claim from?
+      </h1>
+
+
+      <form action="have-been" method="post">
+
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: 'jury-service',
+            name: 'juryService',
+            items: [
+                {
+                    value: "yes~/design-ideas/1420-change-claim-start/iteration-4/jury-service-period",
+                    text: "Yes"
+                },
+                {
+                    value: "no~/design-ideas/1420-change-claim-start/iteration-4/job-ended-last-six-months",
+                    text: "No"
+                }
+            ]
+          })
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

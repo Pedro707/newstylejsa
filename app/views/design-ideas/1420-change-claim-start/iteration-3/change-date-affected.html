@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent%}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+              <span class="govuk-caption-xl">Application start date</span>
+        Confirmation change start date
+      </h1>
+
+      <p class="govuk-body">
+        Based on the date you want to claim from (<strong>9 November 2020</strong>), the following information you have
+        provided will need updating:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-6">
+        <li>
+          <strong>Jury service</strong><br>The dates we asked you about do not cover the 12 week period before the new claim start date
+        </li>
+        <li>
+          <strong>Previous employment</strong><br>The dates we asked you about do not cover the 6 month period before the new claim start date
+        </li>
+        <li>
+          <strong>Worked or claimed benefits outside of the United Kingdom</strong><br>Your new claim start date may be beyond the 4 years allowed for having worked or claimed benefits outside of the United Kingdom
+        </li>
+        <li>
+          <strong>Current pensions</strong><br>The current pension increases we asked you about may be affected by the new claim start date
+        </li>
+        <li>
+          <strong>Future pensions</strong><br>A number of your future pensions will be removed as they begin more than 6 months after your new claim start date
+        </li>
+        <li>
+          <strong>Education and training</strong><br>The dates we asked you about do not cover the 4 years before the new claim start date
+        </li>
+      </ul>
+
+      {{ govukButton({
+        text: "No, cancel start date change",
+        classes: "inline-item govuk-!-margin-right-2",
+        href: "check-answers"
+      }) }}
+
+      {{ govukButton({
+        text: "Yes, confirm start date change",
+        classes: "govuk-button--secondary",
+        href: "jury-service-have-been"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
