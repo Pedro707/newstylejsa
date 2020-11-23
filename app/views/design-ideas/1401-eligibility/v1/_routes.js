@@ -88,6 +88,15 @@ router.get('/eligible', function (req, res) {
 //   }
 // });
 
+router.get('/employed-previous-year', function (req, res) {
+  var answerEmployed = req.session.data['eligibilityEmployed'];
+  if (answerEmployed === 'eligibility-employed-yes') {
+    res.redirect('/design-ideas/1401-eligibility/v1/eligible');
+  } else {
+    res.render('design-ideas/1401-eligibility/v1/employed-previous-year');
+  }
+});
+
 router.post('/employed-previous-year', function (req, res) {
   var answerEmployed = req.session.data['eligibilityEmployed'];
   var answer = req.session.data['eligibilityEmployedPrevious'];
