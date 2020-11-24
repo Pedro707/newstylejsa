@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Education and training flow
+      </h1>
+
+      {{ govukInsetText({
+        text: "BAU gather of education and training details."
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "check-answers"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

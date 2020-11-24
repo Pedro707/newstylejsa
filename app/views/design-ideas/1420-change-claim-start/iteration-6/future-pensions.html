@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Future pension</span>
+        Do you expect to start receiving a pension or annuity within 6 months of 9 November, the date you want to claim from?
+      </h1>
+    
+      {{ govukInsetText({
+        html: "A number of your future pensions were <string>removed</strong> from your application due to them being outside the period we previously asked about."
+      }) }}
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "future-pension-guard",
+          name: "futurePensionGuard",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "yes~/design-ideas/1420-change-claim-start/iteration-6/future-pensions-flow",
+            text: "Yes"
+          }, {
+            value: "no~/design-ideas/1420-change-claim-start/iteration-6/education-and-training",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

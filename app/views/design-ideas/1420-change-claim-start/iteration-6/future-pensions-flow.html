@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Future pension flow
+      </h1>
+
+      {{ govukInsetText({
+        text: "BAU gather of future pension details."
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "education-and-training"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

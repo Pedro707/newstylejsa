@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block beforeContent%}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+              <span class="govuk-caption-xl">Application start date</span>
+        Are you sure you want to change the claim start date?
+      </h1>
+
+      <p class="govuk-body">
+        Some of the answers you have provided will be affected by changing the claim start date and we will need to ask you those questions again. 
+      </p>
+
+{{ govukWarningText({
+          text: "Once you proceed with change start date you cannot go back as the information you have previously submitted will be deleted.",
+          iconFallbackText: "Warning"
+}) }}
+
+      <p class="govuk-body">
+        The questions we need to ask you again: 
+      </p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-6">
+        <li>
+          <strong>Jury service</strong><br>The dates we asked you about do not cover the 12 week period before the new claim start date
+        </li>
+        <li>
+          <strong>Previous employment</strong><br>The dates we asked you about do not cover the 6 month period before the new claim start date
+        </li>
+        <li>
+          <strong>Worked or claimed benefits outside of the United Kingdom</strong><br>Your new claim start date may be beyond the 4 years allowed for having worked or claimed benefits outside of the United Kingdom
+        </li>
+        <li>
+          <strong>Current pensions</strong><br>The current pension increases we asked you about may be affected by the new claim start date
+        </li>
+        <li>
+          <strong>Education and training</strong><br>The dates we asked you about do not cover the 4 years before the new claim start date
+        </li>
+      </ul>
+
+      {{ govukButton({
+        text: "No, cancel start date change",
+        classes: "inline-item govuk-!-margin-right-2",
+        href: "check-answers"
+      }) }}
+
+      {{ govukButton({
+        text: "Yes, confirm start date change",
+        classes: "govuk-button--secondary",
+        href: "change-date"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
