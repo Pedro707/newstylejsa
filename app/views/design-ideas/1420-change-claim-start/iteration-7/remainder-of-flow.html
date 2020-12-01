@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Remainder of data gather
+      </h1>
+
+      {{ govukInsetText({
+        text: "BAU gather of all other content."
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/design-ideas/1420-change-claim-start/iteration-7/check-answers"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

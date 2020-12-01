@@ -19,15 +19,34 @@ DWP - Apply for New Style Jobseeker&rsquo;s Allowance
     </h1>
     <p>An effort to allow people to change their claim start date at the end of their application without losing all of the information from their application.
     
-    <p>What we don't know is why when a customer changes the claim date the data is not persisted on some parts of the application.
+    <p>Currently, if we were to enable this functionality, and the customer were to proceed with a date change, the information gathered would be cleared from the cache, but without the customer being aware of this – thereby submitting an incomplete application.
 
-    <p>Worked on by: Neil Holroyd, Gareth Joyce, Mark Bateman</p>
+    <p>Worked on by: Neil Holroyd, Gareth Joyce, Poppy Davis</p>
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <h2 class="govuk-heading-l">Versions</h2>
 
     <ul class="govuk-list">
+
+          <li>
+        <span class="govuk-caption-m">30 November 2020</span>
+        <h2 class="govuk-heading-m"><a href="/design-ideas/1420-change-claim-start/iteration-7/2-claim-start/start-date">#7 Changing the questions to negate the need to answer them again</a></h2>
+ 
+             <p>Note: This prototype is based on the assumption that time frames we ask about in the data gathering are not required to change because of the Linking Periods rule, other than two questions where the dates need to be extended.
+
+            <p>Note: the second version of this (not prototyped) relates to a customer backdating their claim in the first instance and deciding later they should change it to today. From the Summary they would change the date and then be taken directly back to the Summary page. Upon submitting their application, the data we have gathered relating to backdating a claim would be deleted.
+
+        {{ govukDetails({
+                      summaryText: "Neil's hypothesis",
+                      html: '
+                      <p>we know that customers need to be able to change their claim date at the end of the data gathering, and that currently if we enable this functionality we see empty claims coming through;</p>
+                      <p>so if we have gathered the data we need to cover a backdated claim at the outset, by rephrasing the Jury question to cover 6 months and the Previous employment to 9 months (to include the 3 month backdating time period);</p>
+                      <p>we will have overcome the technical issue around clearing the cache and see less incomplete claims being submitted.</p>
+                      '
+                    }) }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      </li>
 
           <li>
         <span class="govuk-caption-m">23 November 2020</span>
