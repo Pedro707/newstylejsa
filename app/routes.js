@@ -38,6 +38,10 @@ router.use(
   require("./views/design-ideas/1401-eligibility/Oct-mvp/_routes")
 );
 router.use(
+  "/design-ideas/1401-eligibility/Dec/",
+  require("./views/design-ideas/1401-eligibility/Dec/_routes")
+);
+router.use(
   "/design-ideas/1401-eligibility/v6/",
   require("./views/design-ideas/1401-eligibility/v6/_routes")
 );
