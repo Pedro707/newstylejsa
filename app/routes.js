@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
 
 // Add your routes here - above the module.exports line
 
-// This moves ticket 1401 routing to 1401 directory
+// Routing for 1634
 router.use(
   "/design-ideas/1634-add-conditional-reveal/",
   require("./views/design-ideas/1634-add-conditional-reveal/_routes")
