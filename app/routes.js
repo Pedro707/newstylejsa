@@ -14,6 +14,12 @@ router.get("/", function (req, res) {
 
 // This moves ticket 1401 routing to 1401 directory
 router.use(
+  "/design-ideas/1634-add-conditional-reveal/",
+  require("./views/design-ideas/1634-add-conditional-reveal/_routes")
+);
+
+// This moves ticket 1401 routing to 1401 directory
+router.use(
   "/design-ideas/1401-eligibility/v1/",
   require("./views/design-ideas/1401-eligibility/v1/_routes")
 );
