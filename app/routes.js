@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
 
 // Add your routes here - above the module.exports line
 
-// Routing for 1634
+// Routing for ticket 1634
 router.use(
   "/design-ideas/1634-add-conditional-reveal/",
   require("./views/design-ideas/1634-add-conditional-reveal/_routes")
