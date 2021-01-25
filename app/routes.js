@@ -48,6 +48,10 @@ router.use(
   require("./views/design-ideas/1401-eligibility/Dec/_routes")
 );
 router.use(
+  "/design-ideas/1401-eligibility/Jan/",
+  require("./views/design-ideas/1401-eligibility/Jan/_routes")
+);
+router.use(
   "/design-ideas/1401-eligibility/v6/",
   require("./views/design-ideas/1401-eligibility/v6/_routes")
 );
