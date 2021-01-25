@@ -12,7 +12,7 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
-        What is your residential address?
+        What is your address?
       </h1>
 
       <form action="address-is-it-postal" method="post">
@@ -20,11 +20,11 @@
         {% call govukFieldset({
         }) %}
 
-        <p>If you want to add a different postal address you can do so on the next page.</p>
+        <p>If you'd prefer us to send your post to a different address, you'll be able to tell us later.</p>
 
         {{ govukDetails({
-            summaryText: "What to do if you don't have a permanent or fixed address",
-            html: '<p>If you don&rsquo;t have a permanent or fixed address we can accept the address of a family member  or trusted friend.</p>
+            summaryText: "What to do if you do not have a permanent or fixed address",
+            html: '<p>If you do not have a permanent or fixed address, you can tell us the address of a family member  or trusted friend.</p>
             <p><a href="/v1_4-citizen/3-details/address-postal-address">Continue without providing permanent address details</a></p>'
         }) }}
 
