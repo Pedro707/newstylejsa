@@ -12,6 +12,12 @@ router.get("/", function (req, res) {
 
 // Add your routes here - above the module.exports line
 
+// Routing for ticket 1001
+router.use(
+  "/design-ideas/1001-no-fixed-address/v2/",
+  require("./views/design-ideas/1001-no-fixed-address/v2/_routes")
+);
+
 // Routing for ticket 1634
 router.use(
   "/design-ideas/1634-add-conditional-reveal/",
