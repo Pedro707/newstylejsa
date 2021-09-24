@@ -1,0 +1,91 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+{#
+<p><strong>
+Note: The pound sign needs to be inside the input text box, this is styled by macros/macros.njk
+</strong></p>
+#}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Deferred pension</span>
+        How often should your deferred pension or annuity be paid?
+      </h1>
+
+      <form action="payment-frequency" method="post">
+
+        {% set prefix = "deferred-pension" %}
+
+        {{ govukRadios({
+          idPrefix: "deferred-work-paid",
+          name: "deferredPensionPaid",
+          items: [{
+            value: "Weekly",
+            text: "Every week",
+            checked: checked("deferredPensionPaid", "Weekly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "weekly")
+            }
+          }, {
+            value: "Fortnightly",
+            text: "Every 2 weeks",
+            checked: checked("deferredPensionPaid", "Fortnightly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "fortnightly")
+            }
+          }, {
+            value: "FourWeekly",
+            text: "Every 4 weeks",
+            checked: checked("deferredensionPaid", "FourWeekly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "four-weekly")
+            }
+          }, {
+            value: "Monthly",
+            text: "Every month",
+            checked: checked("deferredPensionPaid", "Monthly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "monthly")
+            }
+          }, {
+            value: "Quarterly",
+            text: "Every 3 months",
+            checked: checked("deferredPensionPaid", "Quarterly"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "quarterly")
+            }
+          }, {
+            value: "BiAnnually",
+            text: "Twice a year",
+            checked: checked("deferredPensionPaid", "BiAnnually"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "bi-annually")
+            }
+          }, {
+            value: "Annually",
+            text: "Once a year",
+            checked: checked("deferredPensionPaid", "Annually"),
+            conditional: {
+              html: grossPensionAmountInput(prefix, "annually")
+            }
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

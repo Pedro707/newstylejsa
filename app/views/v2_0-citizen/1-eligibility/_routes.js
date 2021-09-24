@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const BASE_PATH = 'v1_5-citizen/1-eligibility';
+const BASE_PATH = 'v2_0-citizen/1-eligibility';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
-const NEXT_PATH = 'v1_5-citizen/2-claim-start';
+const NEXT_PATH = 'v2_0-citizen/2-claim-start';
 
 /*
  * BRANCHING FOR ELIGIBILITY

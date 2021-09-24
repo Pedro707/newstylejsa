@@ -1,0 +1,32 @@
+
+{% extends "layout-no-back-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">You're not eligible for New Style Jobseeker's Allowance</h1>
+
+            <section>
+                <p class="govuk-body">Based on your answer, you cannot get New Style Jobseeker's Allowance. To get it you must live in England, Scotland or Wales.</p>
+
+            </section>
+
+            <p class="govuk-!-margin-top-6">If you are not sure which benefit to apply for you can check online.</p>
+            {{ govukButton({
+                text: "Find other benefits",
+                href: "https://www.gov.uk/benefits-calculators"
+            }) }}
+
+            {% include "v2_0-citizen/1-eligibility/includes/still-apply.html" %}
+            <p><a href="working" class="js-still-apply">Continue to apply</a>
+
+        </div>
+    </div>
+
+{% endblock %}

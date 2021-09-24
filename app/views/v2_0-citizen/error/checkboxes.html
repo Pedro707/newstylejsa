@@ -1,0 +1,82 @@
+
+{% extends "layout.html" %}
+
+{% set showErrors = data["show"] == "errors" %}
+
+{% block pageTitle %}
+  {% if  showErrors %}
+  Error: Checkbox Error Test Page
+  {% else %}
+  Checkbox Error Test Page
+  data.radios = ""
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="checkboxes" method="post">
+        {% set formSettings = [
+          {id: "checkbox-yes", text: "Yes"},
+          {id: "checkbox-no", text: "No"}, 
+          {id: "checkbox-maybe", text: "Maybe"}
+        ] %}
+
+        {% if showErrors and data.checkboxes == undefined %}
+
+          {{ govukErrorSummary({
+            "titleText": "There is a problem with your answer",
+            "errorList": [
+              {
+                "text": "Please answer the question",
+                "href": "#" + formSettings[0].id
+              }
+            ],
+            classes: "govuk-!-margin-top-6"
+          }) }}
+
+          {% set errorMessage = { text: "Sorry I didn't quite catch that" } %}
+
+        {% endif %}
+
+        {{ govukCheckboxes({
+          id: "checkboxes",
+          name: "checkboxes",
+          errorMessage: errorMessage,
+          fieldset: {
+            legend: {
+              text: "Would you please answer this question?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [{
+            id: formSettings[0].id,
+            name: formSettings[0].id,
+            value: formSettings[0].id,
+            text: formSettings[0].text
+          }, {
+            id: formSettings[1].id,
+            name: formSettings[1].id,
+            value: formSettings[1].id,
+            text: formSettings[1].text
+          }, {
+            id: formSettings[2].id,
+            name: formSettings[2].id,
+            value: formSettings[2].id,
+            text: formSettings[2].text
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

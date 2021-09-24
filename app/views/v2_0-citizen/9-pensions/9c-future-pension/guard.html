@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Future pension</span>
+        Do you expect to start receiving a pension or annuity in the next 6 months?
+      </h1>
+    
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "future-pension-guard",
+          name: "futurePensionGuard",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "future-pension-guard-yes",
+            text: "Yes"
+          }, {
+            value: "future-pension-guard-no",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% extends "layout-no-back-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Other benefits</span>
+        Have you applied for any other benefits in the last 12 weeks?
+      </h1>
+
+      <form action="guard" method="post">
+
+        {{ govukRadios({
+          idPrefix: "ob-are-you",
+          name: "obAreYou",
+          classes: "govuk-radios--inline",
+          items: [{
+            value: "yes~/v2_0-citizen/4-other-benefits/what-other-benefits",
+            text: "Yes"
+          }, {
+            value: "no~/v2_0-citizen/5-jury-service/have-been",
+            text: "No"
+          }]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

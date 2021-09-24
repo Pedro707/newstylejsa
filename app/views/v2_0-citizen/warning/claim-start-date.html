@@ -1,0 +1,40 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance  
+{% endblock %}
+
+{% block content %}
+
+<p><strong>
+Note: Button and inline link should be vertically aligned.
+</strong></p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form>
+
+        <h1 class="govuk-heading-l">Are you sure you want to change the start date of this claim?</h1>
+
+        {{ govukWarningText({
+          text: "If you change the start date all the information you entered will be deleted and you will have to re-enter it.",
+          iconFallbackText: "Warning"
+        }) }}
+        
+        <div class="inline-form-group">
+          {{ govukButton({
+            text: "No, cancel",
+            classes: "inline-item govuk-!-margin-right-2",
+            href: "/v1_4-citizen/check-answers"
+          }) }}
+
+          <a href="/v1_4-citizen/2-claim-start/change-date" class="inline-item inline-link">Yes, change</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

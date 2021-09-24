@@ -1,0 +1,68 @@
+
+{% extends "layout-no-back-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Have you paid National Insurance over the last 3 years?
+      </h1>
+
+      <p>You may be eligible if you have paid Class 1 National Insurance contributions,
+      usually over the last 3 years. National Insurance credits can also count.</p>
+
+      <p>If you're not sure, you can still apply for New Style JSA. We'll check your
+      application to make sure you're eligible for this benefit.</p>
+
+
+      <form action="contributions" method="post">
+
+        <div class="govuk-form-group">
+
+            <fieldset class="govuk-fieldset">
+
+                {{ govukRadios({
+                    idPrefix: 'contributions',
+                    name: 'eligibilityContributions',
+                    items: [
+                        {
+                            value: "eligibility-contributions-yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "eligibility-contributions-no",
+                            text: "No"
+                        },
+                        {
+                            value: "eligibility-contributions-not-sure",
+                            text: "I'm not sure",
+                            conditional: {
+                              html: "<p>You can <a href='https://www.gov.uk/check-national-insurance-record'>check your National Insurance record online</a>.</p>"
+                            }
+                        }
+                    ]
+                })
+                }}
+
+            </fieldset>
+
+
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

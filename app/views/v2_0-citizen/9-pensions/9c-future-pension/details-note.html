@@ -1,0 +1,40 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Future pension</span>
+        Future pension details
+      </h1>
+
+      <form action="details-note" method="post">
+
+        <p>You will need to contact Jobcentre Plus when you have this information about your future pension or annuity.</p>
+        <div class="contact">
+  <p><strong>Jobseeker's Allowance (JSA) and New Style JSA helpline</strong><br>
+  Telephone: 0800 169 0310<br>
+  Textphone: 0800 169 0314<br>
+  <a href="https://www.relayuk.bt.com">Relay UK</a> (if you cannot hear or speak on the phone): 18001 then 0800 169 0310<br>
+  <a href="https://dwpjsa.signvideo.net">Video relay service</a> for British Sign Language (BSL) users - <a href="https://www.youtube.com/watch?v=Osx7FFxFpNY">check you can use the service</a><br>
+  Welsh language: 0800 328 1744<br>
+  Monday to Friday, 8am to 6pm<br>
+  <a href="/call-charges">Find out about call charges</a></p>
+  </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

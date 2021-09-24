@@ -1,0 +1,85 @@
+
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Apply for New Style Jobseeker&rsquo;s Allowance (JSA)</h1>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <p>To be eligible for New Style Jobseeker's Allowance (JSA) you must:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>live in England, Scotland or Wales</li>
+        <li>be looking for work</li>
+        <li>have been employed and paid enough National Insurance contributions over the last 2 to 3 years (<a href="https://www.gov.uk/national-insurance-credits">National Insurance credits</a> also count)</li>
+        <li>be under State Pension age</li>
+      </ul>
+<p>You are not eligible for New Style JSA if you get <a href="https://www.gov.uk/disability-premiums">severe disability premium</a> or got it in the last month and are still eligible.</p>
+      <h2 class="govuk-heading-m">Before you apply</h2>
+      <p>You will need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your National Insurance number</li>
+        <li>details of the bank or building society account you want your benefit paid in to</li>
+        <li>details of your recent employment, including dates you were employed and employer contact details </li>
+        <li>details of pensions you receive</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "1-eligibility/introduction",
+        isStartButton: true
+      }) }}
+      <div class="govuk-inset-text">
+
+      <p>This service is also available <a href="/gwneud-cais-am-gredyd-cynhwysol">in Welsh (Cymraeg)</a>.</p>
+      </div>
+      <h2 class="govuk-heading-m">After you apply</h2>
+      <p>You'll get a text or phone call within 2 days to arrange your interview at a Jobcentre Plus.</p>
+
+
+
+
+      <p>If you cannot apply online <a href="https://www.gov.uk/contact-jobcentre-plus/new-benefit-claims">contact Jobcentre Plus</a>.</p>
+      <div class="contact">
+      <p><strong>Jobcentre Plus</strong><br>
+      Telephone: 0800 055 6688<br>
+      Textphone: 0800 023 4888<br>
+      <a href="http://ngts.org.uk/">NGT text relay</a> (if you cannot hear or speak on the phone): 18001 then 0800 055 6688<br>
+      Welsh language: 0800 012 1888<br>
+      Monday to Friday, 8am to 6pm<br>
+      <a href="/call-charges">Find out about call charges</a></p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related information
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/universal-credit/how-to-claim">Universal Credit</a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/jobsearch">Find a job</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      </div>
+  </div>
+
+{% endblock %}
