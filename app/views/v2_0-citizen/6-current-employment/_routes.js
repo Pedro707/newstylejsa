@@ -62,7 +62,7 @@ router.post('/employer-name', function (req, res) {
 });
 
 router.post('/employer-address', function (req, res) {
-  res.redirect(`${ABS_BASE_PATH}/employer-contact`);
+  res.redirect(`${ABS_BASE_PATH}/hours`);
 });
 
 router.post('/employer-contact', function (req, res) {

@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -15,7 +15,7 @@
         Do you want to add a different address for your post?
       </h1>
 
-      <form action="add-different-postal-address" method="get">
+      <form action="add-different-postal-address" method="post">
 
         {{ govukRadios({
             idPrefix: 'details-add-different-postal-address',
@@ -23,11 +23,11 @@
             classes: "govuk-radios--inline",
             items: [
                 {
-                    value: "yes~/v2_0-citizen/3-details/address-postal-address",
+                    value: "yes",
                     text: "Yes"
                 },
                 {
-                    value: "no~/v2_0-citizen/3-details/contact-phone",
+                    value: "add-different-postal-address-no",
                     text: "No"
                 }
             ]

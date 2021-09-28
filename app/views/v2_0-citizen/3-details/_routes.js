@@ -5,13 +5,13 @@ const BASE_PATH = 'v2_0-citizen/3-details';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
 const NEXT_PATH = '/v2_0-citizen/4-other-benefits';
 
-router.get('/add-different-postal-address', function (req, res) {
-  const answer = req.query.detailsAddDifferentPostalAddress;
+router.post('/add-different-postal-address', function (req, res) {
+  const answer = req.body.detailsAddDifferentPostalAddress;
 
   if (answer === 'add-different-postal-address-no') {
-    res.redirect('/v2_0-citizen/3-details/contact-phone');
+    res.redirect(`${ABS_BASE_PATH}/contact-phone`);
   } else {
-    res.render('v2_0-citizen/3-details/address-postal-address');
+    res.redirect(`${ABS_BASE_PATH}/address-postal-address`);
   }
 });
 

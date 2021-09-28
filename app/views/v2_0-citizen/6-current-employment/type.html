@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -27,11 +27,11 @@
           idPrefix: "ce-current-work-type",
           name: "ceCurrentWorkType",
           items: [{
-            value: "Paid",
+            value: "paid~/v2_0-citizen/6-current-employment/payment-frequency",
             text: "Paid work",
             checked: checked("ceCurrentWorkType", "Paid")
           }, {
-            value: "Voluntary",
+            value: "voluntary~/v2_0-citizen/6-current-employment/choose-to-be-paid",
             text: "Voluntary work",
             checked: checked("ceCurrentWorkType", "Voluntary")
           }]

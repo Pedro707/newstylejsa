@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -22,12 +22,12 @@
             name: 'eligibilityWorking',
             items: [
                 {
-                    value: "yes~/v2_0-citizen/1-eligibility/working-over",
-                    text: "Yes"
-                },
-                {
-                    value: "no~/v2_0-citizen/1-eligibility/eligible",
-                    text: "No"
+                  value: "eligibility-working-yes",
+                  text: "Yes"
+              },
+              {
+                  value: "eligibility-working-no",
+                  text: "No"
                 }
             ]
           })

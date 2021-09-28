@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -16,7 +16,7 @@
       </h1>
     <p class="govuk-hint">It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.</p>
 
-      <form action="about-you" method="post">
+      <form action="nino" method="post">
         {% call govukFieldset({
         }) %}
         {{ govukInput({
@@ -38,7 +38,8 @@
     {% endcall %}
 
     {{ govukButton({
-        text: "Continue"
+        text: "Continue",
+        href: "about-you"
     }) }}
 
       </form>

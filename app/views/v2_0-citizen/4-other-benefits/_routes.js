@@ -3,7 +3,7 @@ const router = express.Router();
 
 const BASE_PATH = 'v2_0-citizen/4-other-benefits';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
-const NEXT_PATH = 'v2_0-citizen/5-jury-service';
+const NEXT_PATH = '/v2_0-citizen/5-jury-service';
 
 // Redirect /education to first question in sequence
 router.get('/', function (req, res) {

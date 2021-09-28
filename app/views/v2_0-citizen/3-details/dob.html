@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -15,7 +15,7 @@
         What is your date of birth?
       </h1>
 
-      <form action="address" method="post">
+      <form action="dob" method="post">
 
         {% if data['under16'] == "" %}
 
@@ -84,7 +84,8 @@
         }}
 
         {{ govukButton({
-            text: "Continue"
+            text: "Continue",
+            href: "address"
         }) }}
 
       </form>

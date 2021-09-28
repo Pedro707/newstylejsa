@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -12,26 +12,47 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-xl">Personal details</span>
-        What is your email address?
+        Do you have an email we can contact you on?
       </h1>
 
+      <p></p>
       <form action="contact-email" method="post">
 
-        {% call govukFieldset({
-        }) %}
+        {% set contactEmailYes %}
+          {{ govukInput({
+            label: {
+              text: "Enter an email address"
+            },
+            hint: {
+              text: "For example name@example.com"
+            },
+            classes: "govuk-input--width-20",
+            id: "contact-email-address",
+            name: "contact-email-address"
+          }) }}
+        {% endset -%}
 
-        {{ govukInput({
-          label: {
-            text: "Your email address",
-            classes: "govuk-visually-hidden"
+        {{ govukRadios({
+          idPrefix: 'contact-email-address',
+          name: 'contact-email-address',
+          fieldset: {
+            legend: {
+              html: "<p>We'll use your email to contact you about your application.</p>",
+              isPageHeading: false,
+              classes: "govuk-body-l"
+            }
           },
-          classes: "govuk-input--width-20",
-          id: "contact-email",
-          name: "contact-email",
-          value: data["contact-email"]
+          items: [{
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: contactEmailYes
+            }
+          }, {
+            value: "no",
+            text: "No"
+          }]
         }) }}
-
-        {% endcall %}
 
         {{ govukButton({
             text: "Continue"

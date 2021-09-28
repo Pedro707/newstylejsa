@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -15,7 +15,7 @@
         What is your address?
       </h1>
 
-      <form action="address-is-it-postal" method="post">
+      <form action="address" method="post">
 
         {% call govukFieldset({
         }) %}
@@ -82,7 +82,8 @@
         })  }}
 
         {{ govukButton({
-            text: "Continue"
+            text: "Continue",
+            href: "address-is-it-postal"
         }) }}
 
       </form>

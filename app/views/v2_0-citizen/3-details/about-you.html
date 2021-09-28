@@ -1,5 +1,5 @@
 
-{% extends "layout-no-back-beta.html" %}
+{% extends "layout-beta.html" %}
 
 {% block pageTitle %}
   DWP - Jobseeker&rsquo;s Allowance
@@ -15,7 +15,7 @@
         About you
       </h1>
 
-      <form action="dob" method="post">
+      <form action="about-you" method="post">
 
         {% call govukFieldset({
         }) %}
@@ -89,7 +89,8 @@
         {% endcall %}
 
         {{ govukButton({
-            text: "Continue"
+            text: "Continue",
+            href: "dob"
         }) }}
 
       </form>

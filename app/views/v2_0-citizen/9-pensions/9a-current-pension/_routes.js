@@ -5,7 +5,7 @@ const router = express.Router();
 const LIMIT_WARNING_PATH = '/v2_0-citizen/9-pensions/limit-warning';
 const BASE_PATH = 'v2_0-citizen/9-pensions/9a-current-pension';
 const ABS_BASE_PATH = `/${BASE_PATH}`;
-const NEXT_PATH = '/v2_0-citizen/9-pensions/9b-deferred-pension';
+const NEXT_PATH = '/v2_0-citizen/10-education';
 
 // Track which type of pension the user is interacting with
 router.all('/*', function (req, res) {
