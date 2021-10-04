@@ -1,0 +1,99 @@
+
+{% extends "layout-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        What format do you need us to use when we send you letters?
+      </h1>
+
+      <form action="address" method="post">
+
+
+        {% set textHtml %}
+        {{ govukCharacterCount({
+        id: "more-detail",
+        name: "more-detail",
+        maxlength: 200,
+        label: {
+        text: "How can we help when we send you letters?"
+        }
+        }) }}
+        {% endset -%}
+
+{{ govukCheckboxes({
+  idPrefix: "alternative-letter-format",
+  name: "alternative-letter-format",
+
+  hint: {
+    text: "Select all that apply."
+  },
+
+  items: [
+    {
+      value: "audio",
+      text: "Audio forms on cassette tape, CD or MP3"
+    },
+
+    {
+      value: "braille",
+      text: "Braille"
+    },
+
+    {
+      value: "communication",
+      text: "Communication support",
+      hint: {
+        text: "For example, if you need someone else to help you read your letters"
+    }
+    },
+
+    {
+      value: "email",
+      text: "Email"
+    },
+
+    {
+      value: "print",
+      text: "Large print"
+    },
+
+    {
+      value: "paper",
+      text: "Letters on coloured paper"
+    },
+
+    {
+      value: "pdf",
+      text: "Web accessible PDF"
+    },
+
+    {
+      value: "other",
+      text: "Something else",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+            text: "Continue",
+            href: "address-is-it-postal"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

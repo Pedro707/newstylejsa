@@ -1,0 +1,102 @@
+
+{% extends "layout-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{#
+  Backdating page flow:
+
+    index [Do you want your claim to start today?]
+
+    Answer "NO":
+      change-date [When do you want your claim to start?]
+      why-have-you-not-claimed [Tell us why you did not claim NSJSA before today]
+      any-paid-work [Have you been in paid or voluntary work since <date>?]
+      unable-to-work [Have you been ill and unable to work since <date>?]
+      been-on-holiday [Have you been on holiday since <date>?]
+      full-time-education [Have you been in full-time education since <date>?]
+      asked-for-advice [Have you asked for advice about claiming NSJSA since <date>?]
+
+    {Rejoin flow as per answering "YES"}
+
+    Answer "YES":
+      nino [What is your National Insurance number?]
+#}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Application start date</span>
+        Do you want your application to start today?
+      </h1>
+
+      {{ govukInsetText({
+        text: "We cannot backdate your claim if you did not know you could apply for New Style Jobseeker's Allowance (JSA) before today or thought you would get a job.
+"
+      }) }}
+
+      <p>In certain circumstances, your New Style JSA claim can be backdated by up to 3 months. If your claim is eligible for backdating, you can get up to 3 months of New Style JSA in your first payment.</p>
+
+<p>We can only consider backdating your claim in certain circumstances, for example if:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the Department for Work and Pensions, a legal or professional adviser or an advice agency such as Citizens Advice told you that you could not get New Style JSA</li>
+    <li>your partner, parent, child, brother or sister died</li>
+    <li>you were caring for someone with an illness or disability</li>
+  </ul>
+
+  <p>If you want us to backdate your claim, you'll need to tell us:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the date you want your claim to start</li>
+      <li>why you did not apply before today</li>
+    </ul>
+
+    <p>If your claim is eligible for backdating, you'll get New Style JSA for up to 6 months from the date you asked to backdate your claim to.</p>
+      <form action="start-date" method="post">
+
+        {% call govukFieldset({}) %}
+
+        {{ govukWarningText({
+          text: "You cannot change the start date later in the application.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "change-claim-start",
+          name: "claimstart",
+          fieldset: {
+            legend: {
+
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              html: "Yes, I want my application to start from today <strong>12 August 2020</strong>"
+            },
+            {
+              value: "no",
+              html: "No, I want my application to start from an earlier date"
+            }
+          ]
+        }) }}
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

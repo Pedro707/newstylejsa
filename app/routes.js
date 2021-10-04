@@ -87,6 +87,14 @@ router.use(
   "/design-ideas/1557-get-uc/v4/",
   require("./views/design-ideas/1557-get-uc/v4/_routes")
 );
+router.use(
+  "/design-ideas/1974-af-option-1/",
+  require("./views/design-ideas/1974-af-option-1/_routes")
+);
+router.use(
+  "/design-ideas/1974-af-option-2/",
+  require("./views/design-ideas/1974-af-option-2/_routes")
+);
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //

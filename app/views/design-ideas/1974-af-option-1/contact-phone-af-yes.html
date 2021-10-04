@@ -1,0 +1,78 @@
+
+{% extends "layout-beta.html" %}
+
+{% block pageTitle %}
+  DWP - Jobseeker&rsquo;s Allowance
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-xl">Personal details</span>
+        What format do you need us to use when we contact you by phone?
+      </h1>
+
+      <form action="contact-do-you-have-an-email" method="post">
+
+
+        {% set textHtml %}
+        {{ govukCharacterCount({
+        id: "more-detail",
+        name: "more-detail",
+        maxlength: 200,
+        label: {
+        text: "How can we help when we contact you by phone?"
+        }
+        }) }}
+        {% endset -%}
+
+{{ govukCheckboxes({
+  idPrefix: "alternative-phone-format",
+  name: "alternative-phone-format",
+
+  hint: {
+    text: "Select all that apply."
+  },
+
+  items: [
+
+    {
+      value: "communication",
+      text: "Communication support",
+      hint: {
+        text: "For example, if you need someone else to make calls for you"
+    }
+    },
+
+    {
+      value: "relay",
+      text: "Relay UK, Type talk or textphone"
+    },
+
+    {
+      value: "sign",
+      text: "Sign language"
+    },
+
+    {
+      value: "other",
+      text: "Something else",
+      conditional: {
+        html: textHtml
+      }
+    }
+  ]
+}) }}
+
+{{ govukButton({
+    text: "Continue"
+}) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
