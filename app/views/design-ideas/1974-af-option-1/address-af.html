@@ -85,19 +85,19 @@
 
 
         <h2 class="govuk-heading-m">
-          Do you need us to use any different formats when we send you letters?
+          Do you have a disability or health condition that means we need to send you letters in an accessible format?
         </h2>
 
 
         {{ govukRadios({
-          idPrefix: 'contact-telephone-number',
-          name: 'contact-telephone-number-af',
+          idPrefix: 'address-af',
+          name: 'address-af',
           classes: "govuk-radios--inline",
           items: [{
             value: "yes",
             text: "Yes",
             conditional: {
-              html: contactPhoneYes
+              html: addressYes
             }
           }, {
             value: "no",
@@ -106,8 +106,7 @@
         }) }}
 
         {{ govukButton({
-            text: "Continue",
-            href: "address-af-yes"
+            text: "Continue"
         }) }}
 
 

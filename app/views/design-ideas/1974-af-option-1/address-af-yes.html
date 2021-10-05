@@ -19,10 +19,9 @@
 
 
         {% set textHtml %}
-        {{ govukCharacterCount({
+        {{ govukTextarea({
         id: "more-detail",
         name: "more-detail",
-        maxlength: 200,
         label: {
         text: "How can we help when we send you letters?"
         }
