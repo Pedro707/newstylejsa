@@ -28,6 +28,45 @@
         }) }}
         {% endset -%}
 
+        {% set printHtml %}
+        {{ govukRadios({
+        id: "print-size",
+        name: "print-size",
+        fieldset: {
+        legend: {
+        text: "What size large print do you need?",
+        classes: "govuk-body govuk-!-font-weight-bold"
+        }
+      },
+        items: [
+  {
+    value: "size-16",
+    text: "Size 16"
+  },
+  {
+    value: "size-18",
+    text: "Size 18"
+  },
+  {
+    value: "size-20",
+    text: "Size 20"
+  },
+  {
+    value: "size-22",
+    text: "Size 22"
+  },
+  {
+    value: "size-24",
+    text: "Size 24"
+  },
+  {
+    value: "size-26",
+    text: "Size 26"
+  }
+]
+        }) }}
+        {% endset -%}
+
 {{ govukCheckboxes({
   idPrefix: "alternative-letter-format",
   name: "alternative-letter-format",
@@ -57,12 +96,18 @@
 
     {
       value: "email",
-      text: "Email"
+      text: "Email",
+      hint: {
+        text: "You'll be able to tell us your email address later"
+    }
     },
 
     {
       value: "print",
-      text: "Large print"
+      text: "Large print",
+      conditional: {
+        html: printHtml
+      }
     },
 
     {
@@ -73,6 +118,10 @@
     {
       value: "pdf",
       text: "Web accessible PDF"
+    },
+    {
+      value: "word",
+      text: "Word document"
     },
 
     {
